@@ -3,70 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIMAD — Sistema Inteligente de Marketing de Alto Desempenho</title>
+    <title>SIMAD — Painel de Marketing</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Sidebar -->
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-header">
-            <div class="logo">
-                <i class="fas fa-bolt"></i>
-                <span>SIMAD</span>
-            </div>
-            <button class="toggle-sidebar" id="toggleSidebar">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="logo"><i class="fas fa-bolt"></i><span>SIMAD</span></div>
+            <button class="toggle-sidebar" id="toggleSidebar"><i class="fas fa-bars"></i></button>
         </div>
-        
         <nav class="sidebar-nav">
-            <a href="#dashboard" class="nav-item active" data-section="dashboard">
-                <i class="fas fa-chart-line"></i>
-                <span>Dashboard</span>
-            </a>
-            <a href="#conteudo" class="nav-item" data-section="conteudo">
-                <i class="fas fa-pen-fancy"></i>
-                <span>Conteúdo</span>
-            </a>
-            <a href="#calendario" class="nav-item" data-section="calendario">
-                <i class="fas fa-calendar-alt"></i>
-                <span>Calendário</span>
-            </a>
-            <a href="#relatorios" class="nav-item" data-section="relatorios">
-                <i class="fas fa-file-alt"></i>
-                <span>Relatórios</span>
-            </a>
-            <a href="#trafego" class="nav-item" data-section="trafego">
-                <i class="fas fa-bullseye"></i>
-                <span>Tráfego Pago</span>
-            </a>
-            <a href="#seo" class="nav-item" data-section="seo">
-                <i class="fas fa-search"></i>
-                <span>SEO</span>
-            </a>
-            <a href="#concorrentes" class="nav-item" data-section="concorrentes">
-                <i class="fas fa-chess"></i>
-                <span>Concorrentes</span>
-            </a>
-            <a href="#email" class="nav-item" data-section="email">
-                <i class="fas fa-envelope"></i>
-                <span>Email Marketing</span>
-            </a>
-            <a href="#empresa" class="nav-item" data-section="empresa">
-                <i class="fas fa-building"></i>
-                <span>Empresa</span>
-            </a>
-            <a href="#importar" class="nav-item" data-section="importar">
-                <i class="fas fa-file-import"></i>
-                <span>Importar Dados</span>
-            </a>
+            <a href="#" class="nav-item active" data-section="dashboard"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+            <a href="#" class="nav-item" data-section="conteudo"><i class="fas fa-pen-fancy"></i><span>Conteúdo</span></a>
+            <a href="#" class="nav-item" data-section="calendario"><i class="fas fa-calendar-alt"></i><span>Calendário</span></a>
+            <a href="#" class="nav-item" data-section="relatorios"><i class="fas fa-file-alt"></i><span>Relatórios</span></a>
+            <a href="#" class="nav-item" data-section="trafego"><i class="fas fa-bullseye"></i><span>Tráfego Pago</span></a>
+            <a href="#" class="nav-item" data-section="concorrentes"><i class="fas fa-chess"></i><span>Concorrentes</span></a>
+            <a href="#" class="nav-item" data-section="empresa"><i class="fas fa-building"></i><span>Empresa</span></a>
         </nav>
-
         <div class="sidebar-footer">
             <div class="company-info">
-                <img src="assets/logo.png" alt="Alice Werlang" class="company-logo">
+                <div class="company-logo">AW</div>
                 <div class="company-details">
                     <span class="company-name">Alice Werlang</span>
                     <span class="company-status"><i class="fas fa-circle"></i> Ativo</span>
@@ -75,342 +33,127 @@
         </div>
     </aside>
 
-    <!-- Main Content -->
     <main class="main-content" id="mainContent">
-        <!-- Top Bar -->
         <header class="top-bar">
             <div class="top-bar-left">
                 <h1 id="pageTitle">Dashboard</h1>
                 <span class="breadcrumb">SIMAD / <span id="breadcrumb">Visão Geral</span></span>
             </div>
             <div class="top-bar-right">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" placeholder="Buscar...">
-                </div>
-                <button class="btn-notification">
-                    <i class="fas fa-bell"></i>
-                    <span class="notification-badge">3</span>
-                </button>
-                <div class="user-profile">
-                    <img src="assets/avatar.png" alt="Admin">
-                    <span>Admin</span>
-                </div>
+                <div class="user-profile"><span>Admin</span></div>
             </div>
         </header>
 
-        <!-- Dashboard Section -->
+        <!-- Dashboard -->
         <section class="content-section active" id="dashboard">
-            <!-- KPIs -->
             <div class="kpi-grid">
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-revenue">
-                        <i class="fas fa-dollar-sign"></i>
-                    </div>
+                    <div class="kpi-icon kpi-revenue"><i class="fas fa-dollar-sign"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">Faturamento Mensal</span>
-                        <span class="kpi-value" id="kpiRevenue">R$ 450.000</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +12% vs mês anterior</span>
+                        <span class="kpi-value">R$ 450.000</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +12%</span>
                     </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-instagram">
-                        <i class="fab fa-instagram"></i>
-                    </div>
+                    <div class="kpi-icon kpi-instagram"><i class="fab fa-instagram"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">Seguidores Instagram</span>
                         <span class="kpi-value" id="kpiLeads">69.000</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +5% vs mês anterior</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +5%</span>
                     </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-cac">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
+                    <div class="kpi-icon kpi-cac"><i class="fas fa-hand-holding-usd"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">CAC</span>
-                        <span class="kpi-value" id="kpiCAC">R$ 18,50</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-down"></i> -15% vs mês anterior</span>
+                        <span class="kpi-value">R$ 18,50</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-down"></i> -15%</span>
                     </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-roas">
-                        <i class="fas fa-chart-pie"></i>
-                    </div>
+                    <div class="kpi-icon kpi-roas"><i class="fas fa-chart-pie"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">ROAS</span>
-                        <span class="kpi-value" id="kpiROAS">4.2x</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +0.8x vs mês anterior</span>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-icon kpi-conversion">
-                        <i class="fas fa-funnel-dollar"></i>
-                    </div>
-                    <div class="kpi-info">
-                        <span class="kpi-label">Taxa de Conversão</span>
-                        <span class="kpi-value" id="kpiConversion">3.8%</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +0.5% vs mês anterior</span>
-                    </div>
-                </div>
-                <div class="kpi-card">
-                    <div class="kpi-icon kpi-ctr">
-                        <i class="fas fa-mouse-pointer"></i>
-                    </div>
-                    <div class="kpi-info">
-                        <span class="kpi-label">CTR Médio</span>
-                        <span class="kpi-value" id="kpiCTR">2.4%</span>
-                        <span class="kpi-change negative"><i class="fas fa-arrow-down"></i> -0.2% vs mês anterior</span>
+                        <span class="kpi-value">4.2x</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +0.8x</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Charts Row -->
             <div class="charts-row">
                 <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Receita vs Investimento</h3>
-                        <select id="revenuePeriod">
-                            <option value="7">Últimos 7 dias</option>
-                            <option value="30" selected>Últimos 30 dias</option>
-                            <option value="90">Últimos 90 dias</option>
-                        </select>
+                    <h3>Receita vs Investimento</h3>
+                    <div class="simple-chart">
+                        <div class="bar-group"><span>1 Jul</span><div class="bar" style="height:60%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>5 Jul</span><div class="bar" style="height:75%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>10 Jul</span><div class="bar" style="height:68%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>15 Jul</span><div class="bar" style="height:90%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>20 Jul</span><div class="bar" style="height:83%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>25 Jul</span><div class="bar" style="height:100%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>30 Jul</span><div class="bar" style="height:95%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
                     </div>
-                    <canvas id="revenueChart"></canvas>
+                    <div class="chart-legend"><span><i class="fas fa-circle" style="color:var(--secondary)"></i> Receita</span><span><i class="fas fa-circle" style="color:var(--primary)"></i> Investimento</span></div>
                 </div>
                 <div class="chart-card">
-                    <div class="chart-header">
-                        <h3>Performance por Canal</h3>
+                    <h3>Performance por Canal</h3>
+                    <div class="donut-chart">
+                        <div class="donut-item"><div class="donut-bar" style="--pct:35%;--clr:#E4405F"></div><span>Instagram 35%</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:20%;--clr:#1877F2"></div><span>Facebook 20%</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:15%;--clr:#4285F4"></div><span>Google 15%</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:12%;--clr:#000"></div><span>TikTok 12%</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:10%;--clr:var(--secondary)"></div><span>Email 10%</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:8%;--clr:var(--accent)"></div><span>Orgânico 8%</span></div>
                     </div>
-                    <canvas id="channelChart"></canvas>
                 </div>
             </div>
 
-            <!-- Meta do Dia -->
             <div class="daily-target">
-                <div class="target-header">
-                    <h3><i class="fas fa-bullseye"></i> Meta do Dia — <span id="currentDate"></span></h3>
-                    <span class="target-status" id="targetStatus">Em andamento</span>
-                </div>
+                <h3><i class="fas fa-bullseye"></i> Meta do Dia — <span id="currentDate"></span></h3>
                 <div class="target-progress">
-                    <div class="progress-item">
-                        <span>Investimento</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 65%" id="progressInvestment"></div>
-                        </div>
-                        <span class="progress-value"><span id="investmentSpent">R$ 215</span> / R$ 333</span>
-                    </div>
-                    <div class="progress-item">
-                        <span>Leads</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill progress-leads" style="width: 72%" id="progressLeads"></div>
-                        </div>
-                        <span class="progress-value"><span id="leadsGenerated">36</span> / 50</span>
-                    </div>
-                    <div class="progress-item">
-                        <span>Vendas</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill progress-sales" style="width: 58%" id="progressSales"></div>
-                        </div>
-                        <span class="progress-value"><span id="salesMade">7</span> / 12</span>
-                    </div>
-                    <div class="progress-item">
-                        <span>Faturamento</span>
-                        <div class="progress-bar">
-                            <div class="progress-fill progress-revenue" style="width: 45%" id="progressRevenue"></div>
-                        </div>
-                        <span class="progress-value"><span id="dailyRevenue">R$ 1.350</span> / R$ 3.000</span>
-                    </div>
+                    <div class="progress-item"><span>Investimento</span><div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div><span class="progress-value">R$ 215 / R$ 333</span></div>
+                    <div class="progress-item"><span>Leads</span><div class="progress-bar"><div class="progress-fill green" style="width:72%"></div></div><span class="progress-value">36 / 50</span></div>
+                    <div class="progress-item"><span>Vendas</span><div class="progress-bar"><div class="progress-fill yellow" style="width:58%"></div></div><span class="progress-value">7 / 12</span></div>
+                    <div class="progress-item"><span>Faturamento</span><div class="progress-bar"><div class="progress-fill cyan" style="width:45%"></div></div><span class="progress-value">R$ 1.350 / R$ 3.000</span></div>
                 </div>
             </div>
 
-            <!-- Auto Update Panel -->
-            <div class="auto-update-panel">
-                <div class="auto-update-header">
-                    <h3><i class="fas fa-sync-alt"></i> Atualização Automática</h3>
-                    <span class="auto-update-status active" id="autoUpdateStatus">
-                        <i class="fas fa-sync fa-spin"></i> Ativo
-                    </span>
-                </div>
-                <div class="auto-update-info">
-                    <div class="auto-update-info-item">
-                        <span>Última Atualização</span>
-                        <strong id="lastUpdateAuto">Agora</strong>
-                    </div>
-                    <div class="auto-update-info-item">
-                        <span>Próxima Atualização</span>
-                        <strong>30 min</strong>
-                    </div>
-                    <div class="auto-update-info-item">
-                        <span>Fonte de Dados</span>
-                        <strong>Viralist API</strong>
-                    </div>
-                </div>
-                <div class="auto-update-controls">
-                    <button class="btn-primary" id="forceUpdate" onclick="forceUpdate()">
-                        <i class="fas fa-sync"></i> Atualizar Agora
-                    </button>
-                    <button class="btn-secondary" id="stopAutoUpdate" onclick="stopAutoUpdate()">
-                        <i class="fas fa-pause"></i> Pausar
-                    </button>
-                    <button class="btn-secondary" id="startAutoUpdate" onclick="startAutoUpdate()">
-                        <i class="fas fa-play"></i> Retomar
-                    </button>
-                </div>
-            </div>
-
-            <!-- Instagram Real Data -->
             <div class="instagram-real-data">
                 <h3><i class="fab fa-instagram"></i> Dados Reais - @alicetortas</h3>
                 <div class="instagram-stats">
-                    <div class="ig-stat">
-                        <span class="ig-stat-value">69.000</span>
-                        <span class="ig-stat-label">Seguidores</span>
-                    </div>
-                    <div class="ig-stat">
-                        <span class="ig-stat-value">2.200</span>
-                        <span class="ig-stat-label">Posts</span>
-                    </div>
-                    <div class="ig-stat">
-                        <span class="ig-stat-value">3.200</span>
-                        <span class="ig-stat-label">Seguindo</span>
-                    </div>
-                    <div class="ig-stat">
-                        <span class="ig-stat-value">4.2%</span>
-                        <span class="ig-stat-label">Engajamento</span>
-                    </div>
-                    <div class="ig-stat">
-                        <span class="ig-stat-value">15.000</span>
-                        <span class="ig-stat-label">Alcance Médio</span>
-                    </div>
-                    <div class="ig-stat">
-                        <span class="ig-stat-value">2.900</span>
-                        <span class="ig-stat-label">Likes Médios</span>
-                    </div>
+                    <div class="ig-stat"><span class="ig-stat-value">69.000</span><span class="ig-stat-label">Seguidores</span></div>
+                    <div class="ig-stat"><span class="ig-stat-value">2.200</span><span class="ig-stat-label">Posts</span></div>
+                    <div class="ig-stat"><span class="ig-stat-value">4.2%</span><span class="ig-stat-label">Engajamento</span></div>
+                    <div class="ig-stat"><span class="ig-stat-value">15.000</span><span class="ig-stat-label">Alcance Médio</span></div>
                 </div>
-                <div class="ig-bio">
-                    <strong>Bio:</strong> Maravilhas feitas à mão. ♥️ | Manaíra e Bessa | Entre em contato
-                </div>
-                <div class="ig-link">
-                    <a href="https://linktr.ee/alicetortas" target="_blank">
-                        <i class="fas fa-external-link-alt"></i> linktr.ee/alicetortas
-                    </a>
-                </div>
+                <div class="ig-bio"><strong>Bio:</strong> Maravilhas feitas à mão. ♥️ | Manaíra e Bessa | Entre em contato</div>
             </div>
 
-            <!-- Quick Actions -->
             <div class="quick-actions">
                 <h3>Ações Rápidas</h3>
                 <div class="actions-grid">
-                    <button class="action-btn" onclick="generateContent()">
-                        <i class="fas fa-magic"></i>
-                        <span>Gerar Conteúdo Amanhã</span>
-                    </button>
-                    <button class="action-btn" onclick="generateReport()">
-                        <i class="fas fa-file-pdf"></i>
-                        <span>Gerar Relatório Diário</span>
-                    </button>
-                    <button class="action-btn" onclick="showSection('campanha')">
-                        <i class="fas fa-ad"></i>
-                        <span>Criar Campanha</span>
-                    </button>
-                    <button class="action-btn" onclick="showSection('calendario')">
-                        <i class="fas fa-calendar"></i>
-                        <span>Ver Calendário</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Today's Content Preview -->
-            <div class="content-preview">
-                <h3>Conteúdo de Hoje</h3>
-                <div class="content-cards">
-                    <div class="content-card instagram">
-                        <div class="content-platform">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram - Post</span>
-                        </div>
-                        <div class="content-text">
-                            <p>Bastidores da nossa cozinha! Veja como cada torta é feita com amor e dedicação... 🎂✨</p>
-                        </div>
-                        <div class="content-status published">Publicado</div>
-                    </div>
-                    <div class="content-card tiktok">
-                        <div class="content-platform">
-                            <i class="fab fa-tiktok"></i>
-                            <span>TikTok - Vídeo</span>
-                        </div>
-                        <div class="content-text">
-                            <p>Trending: Processo artesanal da Alice Werlang em 15 segundos! #doces #joaopessoa</p>
-                        </div>
-                        <div class="content-status scheduled">Agendado 18h</div>
-                    </div>
-                    <div class="content-card linkedin">
-                        <div class="content-platform">
-                            <i class="fab fa-linkedin"></i>
-                            <span>LinkedIn - Artigo</span>
-                        </div>
-                        <div class="content-text">
-                            <p>"15 anos transformando momentos em doces memórias" - Nossa história de superação...</p>
-                        </div>
-                        <div class="content-status draft">Rascunho</div>
-                    </div>
+                    <button class="action-btn" onclick="showSection('conteudo')"><i class="fas fa-pen-fancy"></i><span>Gerar Conteúdo</span></button>
+                    <button class="action-btn" onclick="showSection('relatorios')"><i class="fas fa-file-pdf"></i><span>Ver Relatórios</span></button>
+                    <button class="action-btn" onclick="showSection('calendario')"><i class="fas fa-calendar"></i><span>Ver Calendário</span></button>
+                    <button class="action-btn" onclick="showSection('concorrentes')"><i class="fas fa-chess"></i><span>Concorrentes</span></button>
                 </div>
             </div>
         </section>
 
-        <!-- Conteúdo Section -->
+        <!-- Conteúdo -->
         <section class="content-section" id="conteudo">
             <div class="section-header">
                 <h2>Geração de Conteúdo</h2>
-                <div class="section-actions">
-                    <button class="btn-primary" onclick="generateContent('amanha')">
-                        <i class="fas fa-magic"></i> Gerar Conteúdo Amanhã
-                    </button>
-                    <button class="btn-secondary" onclick="generateContent('semana')">
-                        <i class="fas fa-calendar-week"></i> Gerar Semana
-                    </button>
-                </div>
             </div>
-
-            <!-- Platform Tabs -->
             <div class="platform-tabs">
-                <button class="tab-btn active" data-platform="instagram">
-                    <i class="fab fa-instagram"></i> Instagram
-                </button>
-                <button class="tab-btn" data-platform="tiktok">
-                    <i class="fab fa-tiktok"></i> TikTok
-                </button>
-                <button class="tab-btn" data-platform="linkedin">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </button>
-                <button class="tab-btn" data-platform="youtube">
-                    <i class="fab fa-youtube"></i> YouTube
-                </button>
-                <button class="tab-btn" data-platform="twitter">
-                    <i class="fab fa-twitter"></i> Twitter/X
-                </button>
-                <button class="tab-btn" data-platform="pinterest">
-                    <i class="fab fa-pinterest"></i> Pinterest
-                </button>
+                <button class="tab-btn active" data-platform="instagram"><i class="fab fa-instagram"></i> Instagram</button>
+                <button class="tab-btn" data-platform="tiktok"><i class="fab fa-tiktok"></i> TikTok</button>
+                <button class="tab-btn" data-platform="linkedin"><i class="fab fa-linkedin"></i> LinkedIn</button>
             </div>
-
-            <!-- Instagram Content Generator -->
             <div class="platform-content active" id="instagram-content">
-                <div class="content-generator">
-                    <div class="generator-form">
-                        <h3><i class="fab fa-instagram"></i> Instagram — Conteúdo Diário</h3>
-                        
-                        <!-- Post Feed -->
-                        <div class="content-block">
-                            <h4>📸 Post Feed (Carrossel)</h4>
-                            <div class="form-group">
-                                <label>Tema/Assunto</label>
-                                <input type="text" value="Bastidores da cozinha - Como fazemos nossas tortas artesanais" id="igPostTheme">
-                            </div>
-                            <div class="form-group">
-                                <label>Legenda Completa</label>
-                                <textarea id="igPostCaption" rows="6">🎂✨ BASTIDORES DA ALICE WERLANG ✨🎂
+                <div class="content-block">
+                    <h4>📸 Post Feed</h4>
+                    <textarea id="igPostCaption" rows="8">🎂✨ BASTIDORES DA ALICE WERLANG ✨🎂
 
 Você já imaginou o que acontece nos bastidores de uma torta perfeita?
 
@@ -425,1318 +168,141 @@ Nossa equipe trabalha com MUITO amor e dedicação para levar até você o melho
 🛵 Delivery para toda a cidade
 📞 Peça já pelo WhatsApp!
 
-#doces #docesartesanais #joaopessoa #tortas #confeitaria #docesgourmet #sobremesas #food #instafood #bolo #tortademorango #docerianordeste #paraiba #jp #cabobranco #manaira #bessa #docesparatodos #receitas #culinaria</textarea>
-                            </div>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label>Melhor Horário</label>
-                                    <input type="text" value="12:00 ou 19:00" readonly>
-                                </div>
-                                <div class="form-group">
-                                    <label>Tipo de Arte</label>
-                                    <select>
-                                        <option selected>Carrossel (5-7 slides)</option>
-                                        <option>Imagem Única</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <button class="btn-copy" onclick="copyText('igPostCaption')">
-                                <i class="fas fa-copy"></i> Copiar Legenda
-                            </button>
-                        </div>
-
-                        <!-- Stories -->
-                        <div class="content-block">
-                            <h4>📱 Stories (5 stories)</h4>
-                            <div class="stories-list">
-                                <div class="story-item">
-                                    <span class="story-number">1</span>
-                                    <div class="story-content">
-                                        <strong>Enquete/Interação</strong>
-                                        <p>"Qual é o seu sabor favorito? 🍓🍫" com opções de enquete</p>
-                                    </div>
-                                </div>
-                                <div class="story-item">
-                                    <span class="story-number">2</span>
-                                    <div class="story-content">
-                                        <strong>Conteúdo de Valor</strong>
-                                        <p>"3 dicas para escolher a torta perfeita para sua festa"</p>
-                                    </div>
-                                </div>
-                                <div class="story-item">
-                                    <span class="story-number">3</span>
-                                    <div class="story-content">
-                                        <strong>Bastidores</strong>
-                                        <p>Vídeo curto da cozinha preparando uma torta</p>
-                                    </div>
-                                </div>
-                                <div class="story-item">
-                                    <span class="story-number">4</span>
-                                    <div class="story-content">
-                                        <strong>Prova Social</strong>
-                                        <p>Depoimento de cliente satisfeita + foto do produto</p>
-                                    </div>
-                                </div>
-                                <div class="story-item">
-                                    <span class="story-number">5</span>
-                                    <div class="story-content">
-                                        <strong>CTA/Oferta</strong>
-                                        <p>"Peça agora pelo WhatsApp e ganhe 10% OFF!" + link</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Reels -->
-                        <div class="content-block">
-                            <h4>🎬 Reels</h4>
-                            <div class="form-group">
-                                <label>Roteiro do Reels</label>
-                                <textarea id="igReelsScript" rows="8">HOOK (0-3s): "Vocês querem ver como a torta mais pedida de JP é feita?" 🎬
+#doces #docesartesanais #joaopessoa #tortas #confeitaria</textarea>
+                    <button class="btn-copy" onclick="copyText('igPostCaption')"><i class="fas fa-copy"></i> Copiar</button>
+                </div>
+                <div class="content-block">
+                    <h4>🎬 Reels</h4>
+                    <textarea id="igReelsScript" rows="6">HOOK (0-3s): "Vocês querem ver como a torta mais pedida de JP é feita?"
 
 DESENVOLVIMENTO (3-25s):
 - Mostrar ingredientes sendo preparados
 - Processo de montagem da torta
 - Close nos detalhes artesanais
-- Momento do acabamento
 
 CTA FINAL (25-30s):
-"Curtiu? Salva essa dica e marca alguém que precisa experimentar! 🎂"
+"Curtiu? Salva essa dica e marca alguém!"
 
-ÁUDIO SUGERIDO: Música trending actual
-DURAÇÃO IDEAL: 25-30 segundos
-HASHTAGS: #reels #trending #doces #joaopessoa #foodtok</textarea>
-                            </div>
-                            <button class="btn-copy" onclick="copyText('igReelsScript')">
-                                <i class="fas fa-copy"></i> Copiar Roteiro
-                            </button>
-                        </div>
-                    </div>
+HASHTAGS: #reels #trending #doces #joaopessoa</textarea>
+                    <button class="btn-copy" onclick="copyText('igReelsScript')"><i class="fas fa-copy"></i> Copiar</button>
                 </div>
             </div>
-
-            <!-- TikTok Content Generator -->
             <div class="platform-content" id="tiktok-content">
-                <div class="content-generator">
-                    <div class="generator-form">
-                        <h3><i class="fab fa-tiktok"></i> TikTok — Vídeos Virais</h3>
-                        
-                        <div class="content-block">
-                            <h4>📹 Vídeo 1</h4>
-                            <div class="form-group">
-                                <label>Hook Viral (1º segundo)</label>
-                                <input type="text" value="Isso aqui é o segredo da torta mais vendida de João Pessoa..." id="tiktokHook1">
-                            </div>
-                            <div class="form-group">
-                                <label>Roteiro com Timecode</label>
-                                <textarea id="tiktokScript1" rows="6">00:00 - HOOK: "Isso aqui é o segredo da torta mais vendida de João Pessoa..."
-00:03 - MOSTRAR: Processo artesanal rápido (time-lapse)
-00:08 - REVELAÇÃO: "Feita com amor e tradição há mais de 15 anos"
-00:12 - CLOSE: Detalhe do produto final
+                <div class="content-block">
+                    <h4>📹 Vídeo TikTok</h4>
+                    <textarea rows="6">HOOK: "Isso aqui é o segredo da torta mais vendida de João Pessoa..."
+
+00:03 - MOSTRAR: Processo artesanal
+00:08 - REVELAÇÃO: "Feita com amor há 15 anos"
 00:15 - CTA: "Marca aquele amigo que precisa experimentar!"
 
-TREND: "POV" ou "Watch me" 
-SOM: Áudio trending actual
-HASHTAGS: #doces #joaopessoa #foodtiktok #artisanal #fyp</textarea>
-                            </div>
-                            <button class="btn-copy" onclick="copyText('tiktokScript1')">
-                                <i class="fas fa-copy"></i> Copiar Roteiro
-                            </button>
-                        </div>
-
-                        <div class="content-block">
-                            <h4>📹 Vídeo 2</h4>
-                            <div class="form-group">
-                                <label>Hook Viral</label>
-                                <input type="text" value="NÃO ACEITO que você ainda não provou essa torta...">
-                            </div>
-                            <div class="form-group">
-                                <label>Roteiro</label>
-                                <textarea rows="6">00:00 - HOOK: "NÃO ACEITO que você ainda não provou essa torta..."
-00:03 - MOSTRAR: Corte da torta mostrando o interior
-00:07 - REAÇÃO: Pessoa provando e surpreendendo
-00:10 - DEPOIMENTO: "Melhor torta de JP, com certeza!"
-00:13 - CTA: "Vai lá no perfil e pede a sua!"
-
-TREND: "Comentário reagindo"
-SOM: Áudio de surpresa
-HASHTAGS: #review #doces #tortas #joaopessoa #musttry</textarea>
-                            </div>
-                            <button class="btn-copy" onclick="copyText('tiktokScript1')">
-                                <i class="fas fa-copy"></i> Copiar Roteiro
-                            </button>
-                        </div>
-                    </div>
+TREND: "POV" ou "Watch me"
+HASHTAGS: #doces #joaopessoa #foodtiktok</textarea>
+                    <button class="btn-copy" onclick="copyText(this.previousElementSibling)"><i class="fas fa-copy"></i> Copiar</button>
                 </div>
             </div>
-
-            <!-- LinkedIn Content Generator -->
             <div class="platform-content" id="linkedin-content">
-                <div class="content-generator">
-                    <div class="generator-form">
-                        <h3><i class="fab fa-linkedin"></i> LinkedIn — Artigo/Post</h3>
-                        
-                        <div class="content-block">
-                            <h4>📝 Post de Texto Longo</h4>
-                            <div class="form-group">
-                                <label>Hook de Abertura</label>
-                                <input type="text" value="Há 15 anos, comecei com uma receita de família e um sonho..." id="linkedinHook">
-                            </div>
-                            <div class="form-group">
-                                <label>Conteúdo Completo</label>
-                                <textarea id="linkedinContent" rows="10">Há 15 anos, comecei com uma receita de família e um sonho...
+                <div class="content-block">
+                    <h4>📝 Post LinkedIn</h4>
+                    <textarea rows="6">Há 15 anos, comecei com uma receita de família e um sonho...
 
-Hoje, a Alice Werlang é referência em doceria artesanal em João Pessoa, com 3 unidades e uma equipe que compartilha a mesma paixão: transformar momentos em doces memórias.
+Hoje, a Alice Werlang é referência em doceria artesanal em João Pessoa.
 
-O que aprendi nessa jornada:
+O que aprendi:
+1️⃣ QUALIDADE não é opcional
+2️⃣ CONSISTÊNCIA supera talento
+3️⃣ PESSOAS são o ativo mais valioso
+4️⃣ ADAPTAR-SE sem perder a essência
+5️⃣ CLIENTE feliz é o melhor marketing
 
-1️⃣ QUALIDADE não é opcional - é o único caminho
-2️⃣ CONSISTÊNCIA supera talento a cada dia
-3️⃣ PESSOAS são o ativo mais valioso de qualquer negócio
-4️⃣ ADAPTAR-SE sem perder a essência é a chave
-5️⃣ CLIENTE feliz é o melhor marketing que existe
-
-Nossa fórmula é simples: ingredientes selecionados + receitas tradicionais + amor no preparo + atendimento excepcional.
-
-Se você é empreendedor e está começando, saiba: o sucesso não vem da noite para o dia. Vem de cada torta feita com carinho, de cada cliente satisfeito, de cada dia buscando ser melhor.
-
-💪 Estamos há 15 anos provando que é possível fazer diferente.
-
-Quer saber mais sobre nossa história? Acesse alicewerlang.com.br
-
-#empreendedorismo #negócios #doceria #joaopessoa #sucesso #liderança</textarea>
-                            </div>
-                            <button class="btn-copy" onclick="copyText('linkedinContent')">
-                                <i class="fas fa-copy"></i> Copiar Conteúdo
-                            </button>
-                        </div>
-                    </div>
+#empreendedorismo #doceria #joaopessoa</textarea>
+                    <button class="btn-copy" onclick="copyText(this.previousElementSibling)"><i class="fas fa-copy"></i> Copiar</button>
                 </div>
             </div>
         </section>
 
-        <!-- Calendário Section -->
+        <!-- Calendário -->
         <section class="content-section" id="calendario">
             <div class="section-header">
                 <h2>Calendário Editorial</h2>
                 <div class="section-actions">
-                    <button class="btn-secondary" id="prevMonth">
-                        <i class="fas fa-chevron-left"></i>
-                    </button>
+                    <button class="btn-secondary" id="prevMonth"><i class="fas fa-chevron-left"></i></button>
                     <span class="current-month" id="currentMonth">Julho 2026</span>
-                    <button class="btn-secondary" id="nextMonth">
-                        <i class="fas fa-chevron-right"></i>
-                    </button>
-                    <button class="btn-primary" onclick="generateCalendar()">
-                        <i class="fas fa-magic"></i> Gerar Calendário
-                    </button>
+                    <button class="btn-secondary" id="nextMonth"><i class="fas fa-chevron-right"></i></button>
                 </div>
             </div>
-
-            <div class="calendar-grid" id="calendarGrid">
-                <!-- Calendar will be generated by JS -->
-            </div>
-
-            <!-- Calendar Legend -->
+            <div class="calendar-grid" id="calendarGrid"></div>
             <div class="calendar-legend">
-                <div class="legend-item">
-                    <span class="legend-color instagram"></span>
-                    <span>Instagram</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color tiktok"></span>
-                    <span>TikTok</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color linkedin"></span>
-                    <span>LinkedIn</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color youtube"></span>
-                    <span>YouTube</span>
-                </div>
-                <div class="legend-item">
-                    <span class="legend-color email"></span>
-                    <span>Email</span>
-                </div>
+                <div class="legend-item"><span class="legend-color instagram"></span><span>Instagram</span></div>
+                <div class="legend-item"><span class="legend-color tiktok"></span><span>TikTok</span></div>
+                <div class="legend-item"><span class="legend-color linkedin"></span><span>LinkedIn</span></div>
+                <div class="legend-item"><span class="legend-color email"></span><span>Email</span></div>
             </div>
         </section>
 
-        <!-- Relatórios Section -->
+        <!-- Relatórios -->
         <section class="content-section" id="relatorios">
-            <div class="section-header">
-                <h2>Relatórios de Performance</h2>
-                <div class="section-actions">
-                    <button class="btn-primary" onclick="generateReport('daily')">
-                        <i class="fas fa-file-pdf"></i> Relatório Diário
-                    </button>
-                    <button class="btn-secondary" onclick="generateReport('weekly')">
-                        <i class="fas fa-calendar-week"></i> Relatório Semanal
-                    </button>
-                    <button class="btn-secondary" onclick="generateReport('monthly')">
-                        <i class="fas fa-calendar"></i> Relatório Mensal
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Quick Report Cards -->
+            <div class="section-header"><h2>Relatórios</h2></div>
             <div class="report-cards-grid">
-                <div class="report-card" onclick="generateReport('daily')">
-                    <div class="report-card-icon daily">
-                        <i class="fas fa-calendar-day"></i>
-                    </div>
-                    <h4>Relatório Diário</h4>
-                    <p>Métricas completas do dia anterior</p>
-                    <span class="report-card-action">Gerar Agora →</span>
-                </div>
-                
-                <div class="report-card" onclick="generateReport('weekly')">
-                    <div class="report-card-icon weekly">
-                        <i class="fas fa-calendar-week"></i>
-                    </div>
-                    <h4>Relatório Semanal</h4>
-                    <p>Resumo e análise da semana</p>
-                    <span class="report-card-action">Gerar Agora →</span>
-                </div>
-                
-                <div class="report-card" onclick="generateReport('monthly')">
-                    <div class="report-card-icon monthly">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h4>Relatório Mensal</h4>
-                    <p>Análise completa do mês</p>
-                    <span class="report-card-action">Gerar Agora →</span>
-                </div>
+                <div class="report-card" onclick="showReport('daily')"><div class="report-card-icon"><i class="fas fa-calendar-day"></i></div><h4>Relatório Diário</h4><p>Métricas completas do dia</p></div>
+                <div class="report-card" onclick="showReport('weekly')"><div class="report-card-icon"><i class="fas fa-calendar-week"></i></div><h4>Relatório Semanal</h4><p>Resumo da semana</p></div>
+                <div class="report-card" onclick="showReport('monthly')"><div class="report-card-icon"><i class="fas fa-calendar-alt"></i></div><h4>Relatório Mensal</h4><p>Análise completa do mês</p></div>
             </div>
-
-            <!-- Daily Report -->
-            <div class="report-container" id="dailyReport">
-                <div class="report-header">
-                    <h3>Relatório Diário — <span id="reportDate"></span></h3>
-                    <div class="report-actions">
-                        <button class="btn-icon" title="Imprimir"><i class="fas fa-print"></i></button>
-                        <button class="btn-icon" title="PDF"><i class="fas fa-file-pdf"></i></button>
-                        <button class="btn-icon" title="Compartilhar"><i class="fas fa-share-alt"></i></button>
-                    </div>
-                </div>
-
-                <div class="report-grid">
-                    <!-- Métricas do Dia -->
-                    <div class="report-metrics">
-                        <h4>📊 Métricas do Dia</h4>
-                        <div class="metrics-table">
-                            <div class="metric-row">
-                                <span>Investimento do Dia</span>
-                                <strong>R$ 215,00</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Leads Gerados</span>
-                                <strong>36</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Custo por Lead (CPL)</span>
-                                <strong>R$ 5,97</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Vendas Realizadas</span>
-                                <strong>7</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Faturamento do Dia</span>
-                                <strong>R$ 1.350,00</strong>
-                            </div>
-                            <div class="metric-row highlight">
-                                <span>ROAS</span>
-                                <strong>6.3x</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Impressões Totais</span>
-                                <strong>12.450</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Cliques Totais</span>
-                                <strong>342</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>CTR Médio</span>
-                                <strong>2.7%</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>CPC Médio</span>
-                                <strong>R$ 0,63</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Engajamento Social</span>
-                                <strong>487 interações</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Emails Enviados</span>
-                                <strong>1.247</strong>
-                            </div>
-                            <div class="metric-row">
-                                <span>Taxa de Abertura</span>
-                                <strong>28.3%</strong>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Análise do Dia -->
-                    <div class="report-analysis">
-                        <h4>🎯 Análise de Performance</h4>
-                        
-                        <div class="analysis-block success">
-                            <h5>✅ O que funcionou hoje (Top 3)</h5>
-                            <ol>
-                                <li>Reels de bastidores — 2.340 views, 4.2% engajamento</li>
-                                <li>Stories com enquete — 89% taxa de resposta</li>
-                                <li>Campaña de retargeting — ROAS 8.2x</li>
-                            </ol>
-                        </div>
-
-                        <div class="analysis-block warning">
-                            <h5>⚠️ O que precisa ajustar</h5>
-                            <ul>
-                                <li>Post feed às 12h — alcance 15% abaixo da média</li>
-                                <li>Anúncio "Torta de Morango" — CTR abaixo de 1%</li>
-                            </ul>
-                        </div>
-
-                        <div class="analysis-block info">
-                            <h5>📈 Comparativo</h5>
-                            <ul>
-                                <li><strong>vs Ontem:</strong> +12% leads, +8% faturamento</li>
-                                <li><strong>vs Média 7 dias:</strong> +5% leads, +15% ROAS</li>
-                            </ul>
-                        </div>
-
-                        <div class="analysis-block alert">
-                            <h5>🚨 Alertas</h5>
-                            <ul>
-                                <li>Orçamento Meta Ads atingiu 65% até 14h — considerar ajuste</li>
-                                <li>CPM subiu 8% — revisar públicos</li>
-                            </ul>
-                        </div>
-
-                        <div class="analysis-block action">
-                            <h5>🎯 Top 3 Ações para Amanhã</h5>
-                            <ol>
-                                <li>Ajustar horário do post feed para 19h</li>
-                                <li>Pausar anúncio "Torta de Morango" e criar variação</li>
-                                <li>Publicar Reels de depoimento de cliente</li>
-                            </ol>
-                        </div>
-                    </div>
-                </div>
+            <div class="report-container" id="reportContent" style="display:none">
+                <div class="report-header"><h3 id="reportTitle">Relatório</h3></div>
+                <div class="report-body" id="reportBody"></div>
             </div>
         </section>
 
-        <!-- Tráfego Pago Section -->
+        <!-- Tráfego Pago -->
         <section class="content-section" id="trafego">
-            <div class="section-header">
-                <h2>Tráfego Pago</h2>
-                <div class="section-actions">
-                    <button class="btn-primary" onclick="createCampaign()">
-                        <i class="fas fa-plus"></i> Nova Campanha
-                    </button>
-                </div>
-            </div>
-
-            <!-- Campaign Structure -->
-            <div class="campaign-container">
-                <div class="campaign-overview">
-                    <h3>Meta Ads — Estrutura Ativa</h3>
-                    <div class="campaign-cards">
-                        <!-- TOFU -->
-                        <div class="campaign-card tofu">
-                            <div class="campaign-type">TOFU — topo de funil</div>
-                            <h4>Conhecimento de Marca</h4>
-                            <div class="campaign-metrics">
-                                <div class="metric">
-                                    <span>Investimento</span>
-                                    <strong>R$ 150/dia</strong>
-                                </div>
-                                <div class="metric">
-                                    <span>Alcance</span>
-                                    <strong>8.500/dia</strong>
-                                </div>
-                                <div class="metric">
-                                    <span>CPC</span>
-                                    <strong>R$ 0,45</strong>
-                                </div>
-                            </div>
-                            <div class="campaign-status active">Ativa</div>
-                        </div>
-
-                        <!-- MOFU -->
-                        <div class="campaign-card mofu">
-                            <div class="campaign-type">MOFU — meio de funil</div>
-                            <h4>Retargeting 3-14 dias</h4>
-                            <div class="campaign-metrics">
-                                <div class="metric">
-                                    <span>Investimento</span>
-                                    <strong>R$ 100/dia</strong>
-                                </div>
-                                <div class="metric">
-                                    <span>Leads</span>
-                                    <strong>25/dia</strong>
-                                </div>
-                                <div class="metric">
-                                    <span>CPL</span>
-                                    <strong>R$ 4,00</strong>
-                                </div>
-                            </div>
-                            <div class="campaign-status active">Ativa</div>
-                        </div>
-
-                        <!-- BOFU -->
-                        <div class="campaign-card bofu">
-                            <div class="campaign-type">BOFU — fundo de funil</div>
-                            <h4>Conversão Direta</h4>
-                            <div class="campaign-metrics">
-                                <div class="metric">
-                                    <span>Investimento</span>
-                                    <strong>R$ 83/dia</strong>
-                                </div>
-                                <div class="metric">
-                                    <span>Vendas</span>
-                                    <strong>8/dia</strong>
-                                </div>
-                                <div class="metric">
-                                    <span>ROAS</span>
-                                    <strong>5.8x</strong>
-                                </div>
-                            </div>
-                            <div class="campaign-status active">Ativa</div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Ad Copies -->
-                <div class="ad-copies">
-                    <h3>Copies de Anúncios</h3>
-                    <div class="copy-tabs">
-                        <button class="copy-tab active" data-copy="1">Variação 1</button>
-                        <button class="copy-tab" data-copy="2">Variação 2</button>
-                        <button class="copy-tab" data-copy="3">Variação 3</button>
-                    </div>
-                    
-                    <div class="copy-content active" id="copy1">
-                        <div class="form-group">
-                            <label>Primary Text</label>
-                            <textarea rows="3">🎂 A torta que você sempre sonhou, feita com amor e tradição há mais de 15 anos!
-
-A Alice Werlang é referência em doceria artesanal em João Pessoa. Ingredientes selecionados, receitas de família e entrega com carinho.
-
-🛵 Delivery para toda JP
-📍 3 unidades na cidade
-📞 Peça já pelo WhatsApp!</textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>Headline</label>
-                            <input type="text" value="Doceria Artesanal em João Pessoa — Peça Já!">
-                        </div>
-                        <div class="form-group">
-                            <label>Description</label>
-                            <input type="text" value="Tortas e doces feitos à mão com ingredientes selecionados">
-                        </div>
-                        <button class="btn-copy" onclick="copyAdCopy('copy1')">
-                            <i class="fas fa-copy"></i> Copiar Anúncio
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Targeting -->
-                <div class="targeting-section">
-                    <h3>Segmentação Detalhada</h3>
-                    <div class="targeting-grid">
-                        <div class="targeting-card">
-                            <h4><i class="fas fa-globe-americas"></i> Localização</h4>
-                            <ul>
-                                <li>João Pessoa — PB (raio 25km)</li>
-                                <li>Cabedelo, Santa Rita, Bayeux</li>
-                            </ul>
-                        </div>
-                        <div class="targeting-card">
-                            <h4><i class="fas fa-users"></i> Interesses</h4>
-                            <ul>
-                                <li>Confeitaria</li>
-                                <li>Doces e sobremesas</li>
-                                <li>Receitas</li>
-                                <li>Culinária</li>
-                                <li>Festas e eventos</li>
-                            </ul>
-                        </div>
-                        <div class="targeting-card">
-                            <h4><i class="fas fa-calendar-check"></i> Comportamentos</h4>
-                            <ul>
-                                <li>Compradores online ativos</li>
-                                <li>Engajamento com conteúdo de food</li>
-                                <li>Responsáveis por compras</li>
-                            </ul>
-                        </div>
-                        <div class="targeting-card">
-                            <h4><i class="fas fa-user-friends"></i> Custom Audiences</h4>
-                            <ul>
-                                <li>Visitantes do site (30 dias)</li>
-                                <li>Engajamento Instagram (90 dias)</li>
-                                <li>Lista de clientes (CRM)</li>
-                                <li>Lookalike 1% de compradores</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div class="section-header"><h2>Tráfego Pago</h2></div>
+            <div class="campaign-cards">
+                <div class="campaign-card tofu"><div class="campaign-type">TOFU</div><h4>Conhecimento de Marca</h4><div class="campaign-metrics"><span>Investimento: R$ 150/dia</span><span>Alcance: 8.500/dia</span><span>CPC: R$ 0,45</span></div></div>
+                <div class="campaign-card mofu"><div class="campaign-type">MOFU</div><h4>Retargeting</h4><div class="campaign-metrics"><span>Investimento: R$ 100/dia</span><span>Leads: 25/dia</span><span>CPL: R$ 4,00</span></div></div>
+                <div class="campaign-card bofu"><div class="campaign-type">BOFU</div><h4>Conversão Direta</h4><div class="campaign-metrics"><span>Investimento: R$ 83/dia</span><span>Vendas: 8/dia</span><span>ROAS: 5.8x</span></div></div>
             </div>
         </section>
 
-        <!-- SEO Section -->
-        <section class="content-section" id="seo">
-            <div class="section-header">
-                <h2>SEO & Conteúdo</h2>
-                <div class="section-actions">
-                    <button class="btn-primary" onclick="generateSEOContent()">
-                        <i class="fas fa-magic"></i> Gerar Briefing SEO
-                    </button>
-                </div>
-            </div>
-
-            <div class="seo-container">
-                <!-- SEO Score -->
-                <div class="seo-score-card">
-                    <h3>Score de SEO Local</h3>
-                    <div class="score-circle">
-                        <span class="score-number">67</span>
-                        <span class="score-label">de 100</span>
-                    </div>
-                    <div class="score-details">
-                        <div class="score-item">
-                            <span>Google Meu Negócio</span>
-                            <div class="score-bar"><div class="score-fill" style="width: 85%"></div></div>
-                            <span>85%</span>
-                        </div>
-                        <div class="score-item">
-                            <span>Palavras-chave</span>
-                            <div class="score-bar"><div class="score-fill" style="width: 60%"></div></div>
-                            <span>60%</span>
-                        </div>
-                        <div class="score-item">
-                            <span>Backlinks</span>
-                            <div class="score-bar"><div class="score-fill" style="width: 45%"></div></div>
-                            <span>45%</span>
-                        </div>
-                        <div class="score-item">
-                            <span> Conteúdo</span>
-                            <div class="score-bar"><div class="score-fill" style="width: 70%"></div></div>
-                            <span>70%</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Keywords -->
-                <div class="keywords-card">
-                    <h3>Palavras-chave Alvo</h3>
-                    <div class="keywords-table">
-                        <div class="keyword-row header">
-                            <span>Palavra-chave</span>
-                            <span>Volume</span>
-                            <span>Difficulty</span>
-                            <span>Status</span>
-                        </div>
-                        <div class="keyword-row">
-                            <span>doceria joão pessoa</span>
-                            <span>2.400/mês</span>
-                            <span class="difficulty easy">Fácil</span>
-                            <span class="status optimizing">Otimizando</span>
-                        </div>
-                        <div class="keyword-row">
-                            <span>torta personalizada joão pessoa</span>
-                            <span>720/mês</span>
-                            <span class="difficulty easy">Fácil</span>
-                            <span class="status ranking">Ranking #5</span>
-                        </div>
-                        <div class="keyword-row">
-                            <span>doces artesanais paraíba</span>
-                            <span>1.100/mês</span>
-                            <span class="difficulty medium">Médio</span>
-                            <span class="status optimizing">Otimizando</span>
-                        </div>
-                        <div class="keyword-row">
-                            <span>melhor torta de joão pessoa</span>
-                            <span>480/mês</span>
-                            <span class="difficulty easy">Fácil</span>
-                            <span class="status new">Novo</span>
-                        </div>
-                        <div class="keyword-row">
-                            <span>confeitaria gourmet nordeste</span>
-                            <span>390/mês</span>
-                            <span class="difficulty hard">Difícil</span>
-                            <span class="status planned">Planejado</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Content Calendar SEO -->
-                <div class="seo-calendar-card">
-                    <h3>Calendário de Conteúdo SEO</h3>
-                    <div class="seo-articles">
-                        <div class="article-item">
-                            <span class="article-date">21 Jul</span>
-                            <div class="article-info">
-                                <strong>"10 Dicas para Escolher a Torta Perfeita para sua Festa"</strong>
-                                <span class="article-keywords">doceria, torta festa, joão pessoa</span>
-                            </div>
-                            <span class="article-status ready">Pronto</span>
-                        </div>
-                        <div class="article-item">
-                            <span class="article-date">28 Jul</span>
-                            <div class="article-info">
-                                <strong>"Como É Feita uma Torta Artesanal: Bastidores da Alice Werlang"</strong>
-                                <span class="article-keywords">torta artesanal, processo, confeitaria</span>
-                            </div>
-                            <span class="article-status writing">Escrevendo</span>
-                        </div>
-                        <div class="article-item">
-                            <span class="article-date">04 Ago</span>
-                            <div class="article-info">
-                                <strong>"Guia Completo: Doces para Casamentos em João Pessoa"</strong>
-                                <span class="article-keywords">doces casamento, JP, confeitaria</span>
-                            </div>
-                            <span class="article-status planned">Planejado</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Concorrentes Section -->
+        <!-- Concorrentes -->
         <section class="content-section" id="concorrentes">
-            <div class="section-header">
-                <h2>Análise de Concorrência</h2>
-                <div class="section-actions">
-                    <button class="btn-primary" onclick="updateCompetitorAnalysis()">
-                        <i class="fas fa-sync-alt"></i> Atualizar Análise
-                    </button>
-                </div>
+            <div class="section-header"><h2>Análise de Concorrência</h2></div>
+            <div class="competitor-cards">
+                <div class="competitor-card"><div class="competitor-header"><h4>Tortlas Confeitaria</h4><span class="competitor-threat high">Alta Ameaça</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Delivery forte, iFood<br><strong>Oportunidade:</strong> Dominar TikTok</div></div>
+                <div class="competitor-card"><div class="competitor-header"><h4>Pamela Gourmet</h4><span class="competitor-threat medium">Média</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Instagram ativo<br><strong>Oportunidade:</strong> Superar em tráfego</div></div>
+                <div class="competitor-card"><div class="competitor-header"><h4>Alê Pessoa</h4><span class="competitor-threat medium">Média</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Horário estendido<br><strong>Oportunidade:</strong> Dominar conteúdo</div></div>
             </div>
-
-            <div class="competitor-container">
-                <!-- Competitor Cards -->
-                <div class="competitor-cards">
-                    <div class="competitor-card">
-                        <div class="competitor-header">
-                            <h4>Tortlas Confeitaria</h4>
-                            <span class="competitor-threat high">Alta Ameaça</span>
-                        </div>
-                        <div class="competitor-metrics">
-                            <div class="comp-metric">
-                                <i class="fab fa-google"></i>
-                                <span>4.7★ Google</span>
-                            </div>
-                            <div class="comp-metric">
-                                <i class="fas fa-store"></i>
-                                <span>2 unidades</span>
-                            </div>
-                            <div class="comp-metric">
-                                <i class="fas fa-utensils"></i>
-                                <span>iFood ativo</span>
-                            </div>
-                        </div>
-                        <div class="competitor-analysis">
-                            <strong>Fazem:</strong> Delivery forte, iFood Ads, avaliações positivas
-                            <br><strong>Não fazem:</strong> Conteúdo educativo, TikTok, Storytelling
-                            <br><strong>Oportunidade:</strong> Dominar TikTok e conteúdo emocional
-                        </div>
-                    </div>
-
-                    <div class="competitor-card">
-                        <div class="competitor-header">
-                            <h4>Pamela Gourmet</h4>
-                            <span class="competitor-threat medium">Média Ameaça</span>
-                        </div>
-                        <div class="competitor-metrics">
-                            <div class="comp-metric">
-                                <i class="fab fa-google"></i>
-                                <span>4.2★ Google</span>
-                            </div>
-                            <div class="comp-metric">
-                                <i class="fas fa-store"></i>
-                                <span>1 unidade</span>
-                            </div>
-                            <div class="comp-metric">
-                                <i class="fab fa-instagram"></i>
-                                <span>Ativo</span>
-                            </div>
-                        </div>
-                        <div class="competitor-analysis">
-                            <strong>Fazem:</strong> Instagram ativo, posicionamento gourmet
-                            <br><strong>Não fazem:</strong> Tráfego pago, SEO, Automação
-                            <br><strong>Oportunidade:</strong> Superar em tráfego e automação
-                        </div>
-                    </div>
-
-                    <div class="competitor-card">
-                        <div class="competitor-header">
-                            <h4>Alê Pessoa</h4>
-                            <span class="competitor-threat medium">Média Ameaça</span>
-                        </div>
-                        <div class="competitor-metrics">
-                            <div class="comp-metric">
-                                <i class="fab fa-google"></i>
-                                <span>4.3-4.5★ Google</span>
-                            </div>
-                            <div class="comp-metric">
-                                <i class="fas fa-store"></i>
-                                <span>2 unidades</span>
-                            </div>
-                            <div class="comp-metric">
-                                <i class="fas fa-clock"></i>
-                                <span>Horário estendido</span>
-                            </div>
-                        </div>
-                        <div class="competitor-analysis">
-                            <strong>Fazem:</strong> Horário estendido, site próprio, avaliações boas
-                            <br><strong>Não fazem:</strong> Tráfego pago, conteúdo viral, Email Marketing
-                            <br><strong>Oportunidade:</strong> Dominar conteúdo e captação de leads
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SWOT -->
-                <div class="swot-grid">
-                    <div class="swot-card strengths">
-                        <h4>Forças</h4>
-                        <ul>
-                            <li>15+ anos de tradição</li>
-                            <li>3 unidades físicas</li>
-                            <li>Produtos feitos à mão</li>
-                            <li>Marca consolidada</li>
-                        </ul>
-                    </div>
-                    <div class="swot-card weaknesses">
-                        <h4>Fraquezas</h4>
-                        <ul>
-                            <li>Investimento baixo em marketing</li>
-                            <li>Sem métricas definidas</li>
-                            <li>Equipe pequena</li>
-                            <li>Ferramentas limitadas</li>
-                        </ul>
-                    </div>
-                    <div class="swot-card opportunities">
-                        <h4>Oportunidades</h4>
-                        <ul>
-                            <li>Crescimento do delivery</li>
-                            <li>TikTok inexplorado</li>
-                            <li>SEO local fraco nos concorrentes</li>
-                            <li>Parcerias B2B</li>
-                        </ul>
-                    </div>
-                    <div class="swot-card threats">
-                        <h4>Ameaças</h4>
-                        <ul>
-                            <li>Tortlas forte no iFood</li>
-                            <li>Novos concorrentes</li>
-                            <li>Sazonalidade</li>
-                            <li>Custos de insumos</li>
-                        </ul>
-                    </div>
-                </div>
+            <div class="swot-grid">
+                <div class="swot-card strengths"><h4>Forças</h4><ul><li>15+ anos de tradição</li><li>3 unidades físicas</li><li>Produtos feitos à mão</li></ul></div>
+                <div class="swot-card weaknesses"><h4>Fraquezas</h4><ul><li>Investimento baixo em marketing</li><li>Sem métricas definidas</li></ul></div>
+                <div class="swot-card opportunities"><h4>Oportunidades</h4><ul><li>Crescimento do delivery</li><li>TikTok inexplorado</li></ul></div>
+                <div class="swot-card threats"><h4>Ameaças</h4><ul><li>Tortlas forte no iFood</li><li>Custos de insumos</li></ul></div>
             </div>
         </section>
 
-        <!-- Email Marketing Section -->
-        <section class="content-section" id="email">
-            <div class="section-header">
-                <h2>Email Marketing</h2>
-                <div class="section-actions">
-                    <button class="btn-primary" onclick="generateEmailSequence()">
-                        <i class="fas fa-magic"></i> Gerar Sequência
-                    </button>
-                </div>
-            </div>
-
-            <div class="email-container">
-                <!-- Email Sequences -->
-                <div class="email-sequences">
-                    <div class="sequence-card">
-                        <div class="sequence-header">
-                            <h4>Welcome Series</h4>
-                            <span class="sequence-count">5 emails</span>
-                        </div>
-                        <div class="sequence-emails">
-                            <div class="email-item">
-                                <span class="email-number">1</span>
-                                <div class="email-info">
-                                    <strong>Bem-vindo à família Alice Werlang! 🎂</strong>
-                                    <span>Envio: Imediato | Open rate esperado: 45%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">2</span>
-                                <div class="email-info">
-                                    <strong>Nossa história: 15 anos transformando momentos</strong>
-                                    <span>Envio: D+2 | Open rate esperado: 35%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">3</span>
-                                <div class="email-info">
-                                    <strong>Conheça nossos produtos mais pedidos</strong>
-                                    <span>Envio: D+4 | Open rate esperado: 32%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">4</span>
-                                <div class="email-info">
-                                    <strong>Oferta especial: 15% OFF na primeira compra</strong>
-                                    <span>Envio: D+6 | Open rate esperado: 40%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">5</span>
-                                <div class="email-info">
-                                    <strong>Última chance: seu desconto expira hoje!</strong>
-                                    <span>Envio: D+8 | Open rate esperado: 38%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn-view" onclick="viewSequence('welcome')">Ver Completo</button>
-                    </div>
-
-                    <div class="sequence-card">
-                        <div class="sequence-header">
-                            <h4>Abandono de Carrinho</h4>
-                            <span class="sequence-count">3 emails</span>
-                        </div>
-                        <div class="sequence-emails">
-                            <div class="email-item">
-                                <span class="email-number">1</span>
-                                <div class="email-info">
-                                    <strong>Esqueceu algo delicioso? 🛒</strong>
-                                    <span>Envio: 1h após abandono | Open rate: 42%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">2</span>
-                                <div class="email-info">
-                                    <strong>Sua torta está te esperando! + Frete Grátis</strong>
-                                    <span>Envio: 24h | Open rate: 35%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">3</span>
-                                <div class="email-info">
-                                    <strong>Última chance: 10% OFF para finalizar</strong>
-                                    <span>Envio: 48h | Open rate: 38%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn-view" onclick="viewSequence('cart')">Ver Completo</button>
-                    </div>
-
-                    <div class="sequence-card">
-                        <div class="sequence-header">
-                            <h4>Pós-Compra</h4>
-                            <span class="sequence-count">4 emails</span>
-                        </div>
-                        <div class="sequence-emails">
-                            <div class="email-item">
-                                <span class="email-number">1</span>
-                                <div class="email-info">
-                                    <strong>Obrigado pela confiança! 💕</strong>
-                                    <span>Envio: Imediato | Open rate: 50%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">2</span>
-                                <div class="email-info">
-                                    <strong>Como foi sua experiência? Avalie-nos!</strong>
-                                    <span>Envio: D+3 | Open rate: 28%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">3</span>
-                                <div class="email-info">
-                                    <strong>Indique e ganhe R$ 20 de desconto!</strong>
-                                    <span>Envio: D+7 | Open rate: 25%</span>
-                                </div>
-                            </div>
-                            <div class="email-item">
-                                <span class="email-number">4</span>
-                                <div class="email-info">
-                                    <strong>Produtos que combinam com seu pedido</strong>
-                                    <span>Envio: D+15 | Open rate: 22%</span>
-                                </div>
-                            </div>
-                        </div>
-                        <button class="btn-view" onclick="viewSequence('post')">Ver Completo</button>
-                    </div>
-                </div>
-
-                <!-- Email Stats -->
-                <div class="email-stats">
-                    <h3>Métricas de Email</h3>
-                    <div class="email-metrics-grid">
-                        <div class="email-metric">
-                            <span>Total de Assinantes</span>
-                            <strong>3.847</strong>
-                        </div>
-                        <div class="email-metric">
-                            <span>Taxa de Abertura</span>
-                            <strong>28.3%</strong>
-                        </div>
-                        <div class="email-metric">
-                            <span>Taxa de Clique</span>
-                            <strong>4.2%</strong>
-                        </div>
-                        <div class="email-metric">
-                            <span>Taxa de Conversão</span>
-                            <strong>1.8%</strong>
-                        </div>
-                        <div class="email-metric">
-                            <span>Receita por Email</span>
-                            <strong>R$ 2,34</strong>
-                        </div>
-                        <div class="email-metric">
-                            <span>Unsubscribe Rate</span>
-                            <strong>0.3%</strong>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Empresa Section -->
+        <!-- Empresa -->
         <section class="content-section" id="empresa">
-            <div class="section-header">
-                <h2>Dados da Empresa</h2>
-            </div>
-
+            <div class="section-header"><h2>Dados da Empresa</h2></div>
             <div class="company-container">
                 <div class="company-profile">
-                    <div class="profile-header">
-                        <img src="assets/logo.png" alt="Alice Werlang" class="profile-logo">
-                        <div class="profile-info">
-                            <h3>Alice Werlang — Alice Tortas</h3>
-                            <p>Restaurante de Doceria | João Pessoa, PB</p>
-                            <span class="profile-status"><i class="fas fa-circle"></i> Ativo no SIMAD</span>
-                        </div>
-                    </div>
-
                     <div class="profile-grid">
-                        <div class="profile-card">
-                            <h4>Dados Gerais</h4>
-                            <div class="profile-items">
-                                <div class="profile-item">
-                                    <span>Segmento</span>
-                                    <strong>Restaurante de Doceria</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Tempo de Mercado</span>
-                                    <strong>+15 anos</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Porte</span>
-                                    <strong>Grande</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Faturamento</span>
-                                    <strong>R$ 200k - R$ 1M/mês</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Funcionários</span>
-                                    <strong>2-5</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="profile-card">
-                            <h4>Produto/Serviço</h4>
-                            <div class="profile-items">
-                                <div class="profile-item">
-                                    <span>Produtos</span>
-                                    <strong>Prontos e Encomendas</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Ticket Médio</span>
-                                    <strong>Até R$ 50</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Margem</span>
-                                    <strong>Até 30%</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Diferencial</span>
-                                    <strong>Tradição + Artesanal</strong>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="profile-card">
-                            <h4>Presença Digital</h4>
-                            <div class="profile-items">
-                                <div class="profile-item">
-                                    <span>Site</span>
-                                    <a href="https://alicewerlang.com.br" target="_blank">alicewerlang.com.br</a>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Instagram</span>
-                                    <a href="#">@alicetortas</a>
-                                </div>
-                                <div class="profile-item">
-                                    <span>TikTok</span>
-                                    <a href="#">@alicetortas</a>
-                                </div>
-                                <div class="profile-item">
-                                    <span>LinkedIn</span>
-                                    <a href="#">Alice Werlang</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="profile-card">
-                            <h4>Marketing Atual</h4>
-                            <div class="profile-items">
-                                <div class="profile-item">
-                                    <span>Tráfego Pago</span>
-                                    <strong>Meta Ads</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Investimento</span>
-                                    <strong>Até R$ 1.000/mês</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>Ferramentas</span>
-                                    <strong>Canva</strong>
-                                </div>
-                                <div class="profile-item">
-                                    <span>CAC</span>
-                                    <strong>Não calculado</strong>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Importar Dados Section -->
-        <section class="content-section" id="importar">
-            <div class="section-header">
-                <h2>Importar Dados</h2>
-                <div class="section-actions">
-                    <button class="btn-secondary" onclick="exportData('json')">
-                        <i class="fas fa-download"></i> Exportar Dados
-                    </button>
-                </div>
-            </div>
-
-            <div class="import-container">
-                <!-- Status da Última Atualização -->
-                <div class="import-status">
-                    <div class="status-card">
-                        <i class="fas fa-sync-alt"></i>
-                        <div class="status-info">
-                            <span>Última Atualização</span>
-                            <strong id="lastUpdate">Nunca atualizado</strong>
-                        </div>
-                    </div>
-                    <div class="status-card">
-                        <i class="fas fa-database"></i>
-                        <div class="status-info">
-                            <span>Dados Armazenados</span>
-                            <strong id="dataCount">0 registros</strong>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Cards de Importação -->
-                <div class="import-grid">
-                    <!-- Meta Ads -->
-                    <div class="import-card">
-                        <div class="import-icon meta">
-                            <i class="fab fa-meta"></i>
-                        </div>
-                        <h3>Meta Ads</h3>
-                        <p>Importe dados de campanhas do Facebook e Instagram Ads</p>
-                        <div class="import-metrics">
-                            <span><i class="fas fa-check-circle"></i> CPC, CTR, ROAS, CPL</span>
-                        </div>
-                        <button class="btn-primary" onclick="showImportModal('meta')">
-                            <i class="fas fa-file-import"></i> Importar
-                        </button>
-                    </div>
-
-                    <!-- Google Analytics -->
-                    <div class="import-card">
-                        <div class="import-icon google">
-                            <i class="fab fa-google"></i>
-                        </div>
-                        <h3>Google Analytics</h3>
-                        <p>Dados de tráfego e comportamento do site</p>
-                        <div class="import-metrics">
-                            <span><i class="fas fa-check-circle"></i> Sessões, Usuários, Conversões</span>
-                        </div>
-                        <button class="btn-primary" onclick="showImportModal('google')">
-                            <i class="fas fa-file-import"></i> Importar
-                        </button>
-                    </div>
-
-                    <!-- Instagram -->
-                    <div class="import-card">
-                        <div class="import-icon instagram">
-                            <i class="fab fa-instagram"></i>
-                        </div>
-                        <h3>Instagram</h3>
-                        <p>Métricas de engajamento e alcance do perfil</p>
-                        <div class="import-metrics">
-                            <span><i class="fas fa-check-circle"></i> Seguidores, Alcance, Engajamento</span>
-                        </div>
-                        <div class="import-buttons">
-                            <button class="btn-primary" onclick="InstagramAPI.showSetupModal()">
-                                <i class="fab fa-instagram"></i> Conectar Directo
-                            </button>
-                            <button class="btn-secondary" onclick="showImportModal('instagram')">
-                                <i class="fas fa-file-import"></i> Importar Manual
-                            </button>
-                        </div>
-                    </div>
-
-                    <!-- Email Marketing -->
-                    <div class="import-card">
-                        <div class="import-icon email">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <h3>Email Marketing</h3>
-                        <p>Performance de campanhas de email</p>
-                        <div class="import-metrics">
-                            <span><i class="fas fa-check-circle"></i> Open Rate, CTR, Receita</span>
-                        </div>
-                        <button class="btn-primary" onclick="showImportModal('email')">
-                            <i class="fas fa-file-import"></i> Importar
-                        </button>
-                    </div>
-
-                    <!-- Vendas -->
-                    <div class="import-card">
-                        <div class="import-icon sales">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                        <h3>Vendas</h3>
-                        <p>Dados de pedidos e receita</p>
-                        <div class="import-metrics">
-                            <span><i class="fas fa-check-circle"></i> Receita, Pedidos, Ticket Médio</span>
-                        </div>
-                        <button class="btn-primary" onclick="showImportModal('sales')">
-                            <i class="fas fa-file-import"></i> Importar
-                        </button>
-                    </div>
-
-                    <!-- WhatsApp -->
-                    <div class="import-card">
-                        <div class="import-icon whatsapp">
-                            <i class="fab fa-whatsapp"></i>
-                        </div>
-                        <h3>WhatsApp Business</h3>
-                        <p>Métricas de atendimento e vendas via WhatsApp</p>
-                        <div class="import-metrics">
-                            <span><i class="fas fa-check-circle"></i> Leads, Conversas, Vendas</span>
-                        </div>
-                        <button class="btn-primary" onclick="showImportModal('whatsapp')">
-                            <i class="fas fa-file-import"></i> Importar
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Configurações de API -->
-                <div class="api-settings">
-                    <h3><i class="fas fa-cog"></i> Configurações de API</h3>
-                    <p class="api-description">Conecte suas contas para atualização automática dos dados</p>
-                    
-                    <div class="api-grid">
-                        <div class="api-item">
-                            <div class="api-status disconnected">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <span>Meta Business Suite</span>
-                            <button class="btn-small" onclick="configureAPI('meta')">Configurar</button>
-                        </div>
-                        <div class="api-item">
-                            <div class="api-status disconnected">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <span>Google Analytics</span>
-                            <button class="btn-small" onclick="configureAPI('google')">Configurar</button>
-                        </div>
-                        <div class="api-item">
-                            <div class="api-status disconnected">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <span>Google Ads</span>
-                            <button class="btn-small" onclick="configureAPI('googleads')">Configurar</button>
-                        </div>
-                        <div class="api-item">
-                            <div class="api-status disconnected">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <span>TikTok Ads</span>
-                            <button class="btn-small" onclick="configureAPI('tiktok')">Configurar</button>
-                        </div>
-                        <div class="api-item">
-                            <div class="api-status disconnected">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <span>RD Station</span>
-                            <button class="btn-small" onclick="configureAPI('rdstation')">Configurar</button>
-                        </div>
-                        <div class="api-item">
-                            <div class="api-status disconnected">
-                                <i class="fas fa-times-circle"></i>
-                            </div>
-                            <span>HubSpot CRM</span>
-                            <button class="btn-small" onclick="configureAPI('hubspot')">Configurar</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Histórico de Importações -->
-                <div class="import-history">
-                    <h3><i class="fas fa-history"></i> Histórico de Importações</h3>
-                    <div class="history-list" id="importHistory">
-                        <div class="history-empty">
-                            <i class="fas fa-inbox"></i>
-                            <p>Nenhuma importação realizada ainda</p>
-                            <span>Importe dados para começar a acompanhar suas métricas</span>
-                        </div>
+                        <div class="profile-card"><h4>Dados Gerais</h4><div class="profile-items"><div class="profile-item"><span>Segmento</span><strong>Restaurante de Doceria</strong></div><div class="profile-item"><span>Tempo de Mercado</span><strong>+15 anos</strong></div><div class="profile-item"><span>Faturamento</span><strong>R$ 200k - R$ 1M/mês</strong></div></div></div>
+                        <div class="profile-card"><h4>Presença Digital</h4><div class="profile-items"><div class="profile-item"><span>Site</span><a href="https://alicewerlang.com.br" target="_blank">alicewerlang.com.br</a></div><div class="profile-item"><span>Instagram</span><a href="#">@alicetortas</a></div></div></div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
-            <div class="modal-header">
-                <h3 id="modalTitle">Título</h3>
-                <button class="modal-close" onclick="closeModal()">&times;</button>
-            </div>
-            <div class="modal-body" id="modalBody">
-                <!-- Content -->
-            </div>
+            <div class="modal-header"><h3 id="modalTitle">Título</h3><button class="modal-close" onclick="closeModal()">&times;</button></div>
+            <div class="modal-body" id="modalBody"></div>
         </div>
     </div>
 
-    <!-- Toast Notification -->
-    <div class="toast" id="toast">
-        <i class="fas fa-check-circle"></i>
-        <span id="toastMessage">Ação realizada com sucesso!</span>
-    </div>
+    <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Ação realizada!</span></div>
 
-    <script src="js/data.js"></script>
-    <script src="js/import.js"></script>
-    <script src="js/instagram.js"></script>
-    <script src="js/instagram-data.js"></script>
-    <script src="js/auto-update.js"></script>
-    <script src="js/reports.js"></script>
     <script src="js/app.js"></script>
 </body>
 </html>
