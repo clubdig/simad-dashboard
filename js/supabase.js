@@ -166,16 +166,44 @@ async function refreshDashboard() {
   const btn = document.querySelector('.refresh-btn');
   if (btn) {
     btn.classList.add('loading');
-    btn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Atualizando...';
+    btn.innerHTML = '<i class="fas fa-sync-alt fa-spin"></i> Buscando dados...';
   }
 
-  const data = await fetchDashboardData();
+  try {
+    // Chamar Edge Function para buscar dados do Instagram
+    const response = await fetch(`${SUPABASE_URL}/functions/v1/fetch-instagram`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
 
-  if (data) {
-    updateDashboardUI(data);
-    showToast('Dados atualizados com sucesso!');
-  } else {
-    showToast('Erro ao atualizar dados', 'error');
+    const result = await response.json();
+    
+    if (result.success) {
+      // Buscar todos os dados atualizados
+      const data = await fetchDashboardData();
+      if (data) {
+        updateDashboardUI(data);
+        showToast(`Dados atualizados! Instagram: ${result.data.followers} seguidores`);
+      }
+    } else {
+      // Se a Edge Function falhar, buscar dados do banco
+      const data = await fetchDashboardData();
+      if (data) {
+        updateDashboardUI(data);
+        showToast('Dados carregados do banco');
+      }
+    }
+  } catch (error) {
+    console.error('Erro ao buscar dados:', error);
+    // Fallback: buscar dados do banco
+    const data = await fetchDashboardData();
+    if (data) {
+      updateDashboardUI(data);
+      showToast('Dados carregados do banco');
+    }
   }
 
   if (btn) {
