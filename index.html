@@ -48,85 +48,83 @@
         <section class="content-section active" id="dashboard">
             <div class="kpi-grid">
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-revenue"><i class="fas fa-dollar-sign"></i></div>
-                    <div class="kpi-info">
-                        <span class="kpi-label">Faturamento Mensal</span>
-                        <span class="kpi-value">R$ 450.000</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +12%</span>
-                    </div>
-                </div>
-                <div class="kpi-card">
                     <div class="kpi-icon kpi-instagram"><i class="fab fa-instagram"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">Seguidores Instagram</span>
-                        <span class="kpi-value" id="kpiLeads">69.000</span>
+                        <span class="kpi-value">69.000</span>
                         <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +5%</span>
                     </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-cac"><i class="fas fa-hand-holding-usd"></i></div>
+                    <div class="kpi-icon kpi-facebook"><i class="fab fa-facebook"></i></div>
                     <div class="kpi-info">
-                        <span class="kpi-label">CAC</span>
-                        <span class="kpi-value">R$ 18,50</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-down"></i> -15%</span>
+                        <span class="kpi-label">Seguidores Facebook</span>
+                        <span class="kpi-value">12.500</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +3%</span>
                     </div>
                 </div>
                 <div class="kpi-card">
-                    <div class="kpi-icon kpi-roas"><i class="fas fa-chart-pie"></i></div>
+                    <div class="kpi-icon kpi-tiktok"><i class="fab fa-tiktok"></i></div>
                     <div class="kpi-info">
-                        <span class="kpi-label">ROAS</span>
-                        <span class="kpi-value">4.2x</span>
-                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +0.8x</span>
+                        <span class="kpi-label">Seguidores TikTok</span>
+                        <span class="kpi-value">8.300</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +18%</span>
+                    </div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-icon kpi-site"><i class="fas fa-globe"></i></div>
+                    <div class="kpi-info">
+                        <span class="kpi-label">Visitantes Site (mês)</span>
+                        <span class="kpi-value">4.200</span>
+                        <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +8%</span>
                     </div>
                 </div>
             </div>
 
             <div class="charts-row">
                 <div class="chart-card">
-                    <h3>Receita vs Investimento</h3>
+                    <h3>Alcance por Plataforma</h3>
                     <div class="simple-chart">
-                        <div class="bar-group"><span>1 Jul</span><div class="bar" style="height:60%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
-                        <div class="bar-group"><span>5 Jul</span><div class="bar" style="height:75%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
-                        <div class="bar-group"><span>10 Jul</span><div class="bar" style="height:68%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
-                        <div class="bar-group"><span>15 Jul</span><div class="bar" style="height:90%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
-                        <div class="bar-group"><span>20 Jul</span><div class="bar" style="height:83%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
-                        <div class="bar-group"><span>25 Jul</span><div class="bar" style="height:100%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
-                        <div class="bar-group"><span>30 Jul</span><div class="bar" style="height:95%;background:var(--secondary)"></div><div class="bar" style="height:20%;background:var(--primary)"></div></div>
+                        <div class="bar-group"><span>Instagram</span><div class="bar" style="height:85%;background:#E4405F"></div></div>
+                        <div class="bar-group"><span>Facebook</span><div class="bar" style="height:40%;background:#1877F2"></div></div>
+                        <div class="bar-group"><span>TikTok</span><div class="bar" style="height:55%;background:#000"></div></div>
+                        <div class="bar-group"><span>Site</span><div class="bar" style="height:25%;background:var(--info)"></div></div>
                     </div>
-                    <div class="chart-legend"><span><i class="fas fa-circle" style="color:var(--secondary)"></i> Receita</span><span><i class="fas fa-circle" style="color:var(--primary)"></i> Investimento</span></div>
+                    <div class="chart-legend"><span><i class="fas fa-circle" style="color:#E4405F"></i> Instagram</span><span><i class="fas fa-circle" style="color:#1877F2"></i> Facebook</span><span><i class="fas fa-circle" style="color:#000"></i> TikTok</span><span><i class="fas fa-circle" style="color:var(--info)"></i> Site</span></div>
                 </div>
                 <div class="chart-card">
-                    <h3>Performance por Canal</h3>
+                    <h3>Delivery - Pedidos Hoje</h3>
                     <div class="donut-chart">
-                        <div class="donut-item"><div class="donut-bar" style="--pct:35%;--clr:#E4405F"></div><span>Instagram 35%</span></div>
-                        <div class="donut-item"><div class="donut-bar" style="--pct:20%;--clr:#1877F2"></div><span>Facebook 20%</span></div>
-                        <div class="donut-item"><div class="donut-bar" style="--pct:15%;--clr:#4285F4"></div><span>Google 15%</span></div>
-                        <div class="donut-item"><div class="donut-bar" style="--pct:12%;--clr:#000"></div><span>TikTok 12%</span></div>
-                        <div class="donut-item"><div class="donut-bar" style="--pct:10%;--clr:var(--secondary)"></div><span>Email 10%</span></div>
-                        <div class="donut-item"><div class="donut-bar" style="--pct:8%;--clr:var(--accent)"></div><span>Orgânico 8%</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:65%;--clr:#FF4500"></div><span>iFood — 42 pedidos</span></div>
+                        <div class="donut-item"><div class="donut-bar" style="--pct:35%;--clr:var(--secondary)"></div><span>AnotaAI — 23 pedidos</span></div>
+                    </div>
+                    <div style="margin-top:1rem;padding:1rem;background:var(--bg-dark);border-radius:var(--border-radius-sm)">
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text-secondary);margin-bottom:0.5rem"><span>Total Hoje</span><strong style="color:var(--text-primary)">65 pedidos</strong></div>
+                        <div style="display:flex;justify-content:space-between;font-size:0.85rem;color:var(--text-secondary)"><span>Média Mensal</span><strong style="color:var(--text-primary)">58 pedidos/dia</strong></div>
                     </div>
                 </div>
             </div>
 
             <div class="daily-target">
-                <h3><i class="fas fa-bullseye"></i> Meta do Dia — <span id="currentDate"></span></h3>
+                <h3><i class="fas fa-bullseye"></i> Meta de Engajamento — <span id="currentDate"></span></h3>
                 <div class="target-progress">
-                    <div class="progress-item"><span>Investimento</span><div class="progress-bar"><div class="progress-fill" style="width:65%"></div></div><span class="progress-value">R$ 215 / R$ 333</span></div>
-                    <div class="progress-item"><span>Leads</span><div class="progress-bar"><div class="progress-fill green" style="width:72%"></div></div><span class="progress-value">36 / 50</span></div>
-                    <div class="progress-item"><span>Vendas</span><div class="progress-bar"><div class="progress-fill yellow" style="width:58%"></div></div><span class="progress-value">7 / 12</span></div>
-                    <div class="progress-item"><span>Faturamento</span><div class="progress-bar"><div class="progress-fill cyan" style="width:45%"></div></div><span class="progress-value">R$ 1.350 / R$ 3.000</span></div>
+                    <div class="progress-item"><span>Alcance Total</span><div class="progress-bar"><div class="progress-fill" style="width:72%"></div></div><span class="progress-value">18.000 / 25.000</span></div>
+                    <div class="progress-item"><span>Interações</span><div class="progress-bar"><div class="progress-fill green" style="width:65%"></div></div><span class="progress-value">1.300 / 2.000</span></div>
+                    <div class="progress-item"><span>Novos Seguidores</span><div class="progress-bar"><div class="progress-fill yellow" style="width:80%"></div></div><span class="progress-value">80 / 100</span></div>
+                    <div class="progress-item"><span>Cliques no Link</span><div class="progress-bar"><div class="progress-fill cyan" style="width:55%"></div></div><span class="progress-value">110 / 200</span></div>
                 </div>
             </div>
 
-            <div class="instagram-real-data">
-                <h3><i class="fab fa-instagram"></i> Dados Reais - @alicetortas</h3>
-                <div class="instagram-stats">
-                    <div class="ig-stat"><span class="ig-stat-value">69.000</span><span class="ig-stat-label">Seguidores</span></div>
-                    <div class="ig-stat"><span class="ig-stat-value">2.200</span><span class="ig-stat-label">Posts</span></div>
-                    <div class="ig-stat"><span class="ig-stat-value">4.2%</span><span class="ig-stat-label">Engajamento</span></div>
-                    <div class="ig-stat"><span class="ig-stat-value">15.000</span><span class="ig-stat-label">Alcance Médio</span></div>
+            <div class="platforms-grid">
+                <h3><i class="fas fa-mobile-alt"></i> Presença Digital</h3>
+                <div class="platform-cards">
+                    <div class="platform-card instagram"><div class="platform-icon"><i class="fab fa-instagram"></i></div><div class="platform-info"><span>Instagram</span><strong>@alicetortas</strong><small>69.000 seguidores • 4.2% engajamento</small></div></div>
+                    <div class="platform-card facebook"><div class="platform-icon"><i class="fab fa-facebook"></i></div><div class="platform-info"><span>Facebook</span><strong>Alice Werlang</strong><small>12.500 seguidores • 3.1% engajamento</small></div></div>
+                    <div class="platform-card tiktok"><div class="platform-icon"><i class="fab fa-tiktok"></i></div><div class="platform-info"><span>TikTok</span><strong>@alicetortas</strong><small>8.300 seguidores • 6.5% engajamento</small></div></div>
+                    <div class="platform-card site"><div class="platform-icon"><i class="fas fa-globe"></i></div><div class="platform-info"><span>Site</span><strong>alicewerlang.com.br</strong><small>4.200 visitas/mês • 2.8min duração</small></div></div>
+                    <div class="platform-card ifood"><div class="platform-icon"><i class="fas fa-utensils"></i></div><div class="platform-info"><span>iFood</span><strong>Alice Tortas</strong><small>4.7★ • 456 avaliações • 42 pedidos/dia</small></div></div>
+                    <div class="platform-card anotaai"><div class="platform-icon"><i class="fas fa-receipt"></i></div><div class="platform-info"><span>AnotaAI</span><strong>Alice Tortas</strong><small>4.5★ • 189 avaliações • 23 pedidos/dia</small></div></div>
                 </div>
-                <div class="ig-bio"><strong>Bio:</strong> Maravilhas feitas à mão. ♥️ | Manaíra e Bessa | Entre em contato</div>
             </div>
 
             <div class="quick-actions">
@@ -244,9 +242,9 @@ O que aprendi:
         <section class="content-section" id="relatorios">
             <div class="section-header"><h2>Relatórios</h2></div>
             <div class="report-cards-grid">
-                <div class="report-card" onclick="showReport('daily')"><div class="report-card-icon"><i class="fas fa-calendar-day"></i></div><h4>Relatório Diário</h4><p>Métricas completas do dia</p></div>
-                <div class="report-card" onclick="showReport('weekly')"><div class="report-card-icon"><i class="fas fa-calendar-week"></i></div><h4>Relatório Semanal</h4><p>Resumo da semana</p></div>
-                <div class="report-card" onclick="showReport('monthly')"><div class="report-card-icon"><i class="fas fa-calendar-alt"></i></div><h4>Relatório Mensal</h4><p>Análise completa do mês</p></div>
+                <div class="report-card" onclick="showReport('daily')"><div class="report-card-icon"><i class="fas fa-calendar-day"></i></div><h4>Relatório Diário</h4><p>Métricas de engajamento e delivery</p></div>
+                <div class="report-card" onclick="showReport('weekly')"><div class="report-card-icon"><i class="fas fa-calendar-week"></i></div><h4>Relatório Semanal</h4><p>Crescimento por plataforma</p></div>
+                <div class="report-card" onclick="showReport('monthly')"><div class="report-card-icon"><i class="fas fa-calendar-alt"></i></div><h4>Relatório Mensal</h4><p>Análise completa de marketing</p></div>
             </div>
             <div class="report-container" id="reportContent" style="display:none">
                 <div class="report-header"><h3 id="reportTitle">Relatório</h3></div>
@@ -256,11 +254,16 @@ O que aprendi:
 
         <!-- Tráfego Pago -->
         <section class="content-section" id="trafego">
-            <div class="section-header"><h2>Tráfego Pago</h2></div>
+            <div class="section-header"><h2>Tráfego Pago & Delivery</h2></div>
             <div class="campaign-cards">
-                <div class="campaign-card tofu"><div class="campaign-type">TOFU</div><h4>Conhecimento de Marca</h4><div class="campaign-metrics"><span>Investimento: R$ 150/dia</span><span>Alcance: 8.500/dia</span><span>CPC: R$ 0,45</span></div></div>
-                <div class="campaign-card mofu"><div class="campaign-type">MOFU</div><h4>Retargeting</h4><div class="campaign-metrics"><span>Investimento: R$ 100/dia</span><span>Leads: 25/dia</span><span>CPL: R$ 4,00</span></div></div>
-                <div class="campaign-card bofu"><div class="campaign-type">BOFU</div><h4>Conversão Direta</h4><div class="campaign-metrics"><span>Investimento: R$ 83/dia</span><span>Vendas: 8/dia</span><span>ROAS: 5.8x</span></div></div>
+                <div class="campaign-card tofu"><div class="campaign-type">REDES SOCIAIS</div><h4>Meta Ads — Instagram/Facebook</h4><div class="campaign-metrics"><span>Investimento: R$ 150/dia</span><span>Alcance: 8.500/dia</span><span>CPC: R$ 0,45</span></div></div>
+                <div class="campaign-card mofu"><div class="campaign-type">REDES SOCIAIS</div><h4>TikTok Ads</h4><div class="campaign-metrics"><span>Investimento: R$ 80/dia</span><span>Views: 15.000/dia</span><span>CPV: R$ 0,02</span></div></div>
+                <div class="campaign-card bofu"><div class="campaign-type">DELIVERY</div><h4>iFood — Pedidos</h4><div class="campaign-metrics"><span>Pedidos: 42/dia</span><span>Ticket Médio: R$ 45</span><span>Avaliação: 4.7★</span></div></div>
+            </div>
+            <div class="campaign-cards" style="margin-top:1.5rem">
+                <div class="campaign-card" style="border-top:3px solid var(--secondary)"><div class="campaign-type">DELIVERY</div><h4>AnotaAI — Pedidos</h4><div class="campaign-metrics"><span>Pedidos: 23/dia</span><span>Ticket Médio: R$ 42</span><span>Avaliação: 4.5★</span></div></div>
+                <div class="campaign-card" style="border-top:3px solid var(--info)"><div class="campaign-type">SITE</div><h4>alicewerlang.com.br</h4><div class="campaign-metrics"><span>Visitas: 140/dia</span><span>Taxa Conversão: 2.8%</span><span>Pedidos via Site: 4/dia</span></div></div>
+                <div class="campaign-card" style="border-top:3px solid var(--accent)"><div class="campaign-type">RESUMO</div><h4>Performance Total</h4><div class="campaign-metrics"><span>Pedidos Total: 69/dia</span><span>Investimento Marketing: R$ 230/dia</span><span>ROAS Geral: 5.2x</span></div></div>
             </div>
         </section>
 
@@ -268,15 +271,15 @@ O que aprendi:
         <section class="content-section" id="concorrentes">
             <div class="section-header"><h2>Análise de Concorrência</h2></div>
             <div class="competitor-cards">
-                <div class="competitor-card"><div class="competitor-header"><h4>Tortlas Confeitaria</h4><span class="competitor-threat high">Alta Ameaça</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Delivery forte, iFood<br><strong>Oportunidade:</strong> Dominar TikTok</div></div>
-                <div class="competitor-card"><div class="competitor-header"><h4>Pamela Gourmet</h4><span class="competitor-threat medium">Média</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Instagram ativo<br><strong>Oportunidade:</strong> Superar em tráfego</div></div>
-                <div class="competitor-card"><div class="competitor-header"><h4>Alê Pessoa</h4><span class="competitor-threat medium">Média</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Horário estendido<br><strong>Oportunidade:</strong> Dominar conteúdo</div></div>
+                <div class="competitor-card"><div class="competitor-header"><h4>Tortlas Confeitaria</h4><span class="competitor-threat high">Alta Ameaça</span></div><div class="competitor-metrics"><span><i class="fab fa-google"></i> 4.7★ Google</span><span><i class="fas fa-store"></i> 2 unidades</span><span><i class="fas fa-utensils"></i> iFood ativo</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Delivery forte, iFood Ads<br><strong>Não fazem:</strong> TikTok, conteúdo emocional<br><strong>Oportunidade:</strong> Dominar TikTok</div></div>
+                <div class="competitor-card"><div class="competitor-header"><h4>Pamela Gourmet</h4><span class="competitor-threat medium">Média</span></div><div class="competitor-metrics"><span><i class="fab fa-google"></i> 4.2★ Google</span><span><i class="fas fa-store"></i> 1 unidade</span><span><i class="fab fa-instagram"></i> Ativo</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Instagram ativo<br><strong>Não fazem:</strong> Tráfego pago, TikTok<br><strong>Oportunidade:</strong> Superar em tráfego</div></div>
+                <div class="competitor-card"><div class="competitor-header"><h4>Alê Pessoa</h4><span class="competitor-threat medium">Média</span></div><div class="competitor-metrics"><span><i class="fab fa-google"></i> 4.3★ Google</span><span><i class="fas fa-store"></i> 2 unidades</span><span><i class="fas fa-clock"></i> Horário estendido</span></div><div class="competitor-analysis"><strong>Fazem:</strong> Horário estendido<br><strong>Não fazem:</strong> Tráfego pago, conteúdo viral<br><strong>Oportunidade:</strong> Dominar conteúdo</div></div>
             </div>
             <div class="swot-grid">
-                <div class="swot-card strengths"><h4>Forças</h4><ul><li>15+ anos de tradição</li><li>3 unidades físicas</li><li>Produtos feitos à mão</li></ul></div>
-                <div class="swot-card weaknesses"><h4>Fraquezas</h4><ul><li>Investimento baixo em marketing</li><li>Sem métricas definidas</li></ul></div>
-                <div class="swot-card opportunities"><h4>Oportunidades</h4><ul><li>Crescimento do delivery</li><li>TikTok inexplorado</li></ul></div>
-                <div class="swot-card threats"><h4>Ameaças</h4><ul><li>Tortlas forte no iFood</li><li>Custos de insumos</li></ul></div>
+                <div class="swot-card strengths"><h4>Forças</h4><ul><li>15+ anos de tradição</li><li>3 unidades físicas</li><li>69k seguidores Instagram</li><li>Presença em 2 plataformas delivery</li></ul></div>
+                <div class="swot-card weaknesses"><h4>Fraquezas</h4><ul><li>TikTok ainda pequeno (8k)</li><li>Facebook abaixo do potencial</li><li>Site com baixa conversão</li></ul></div>
+                <div class="swot-card opportunities"><h4>Oportunidades</h4><ul><li>Crescimento rápido no TikTok</li><li>iFood Ads com bom ROI</li><li>Conteúdo emocional viraliza</li></ul></div>
+                <div class="swot-card threats"><h4>Ameaças</h4><ul><li>Tortlas forte no iFood</li><li>Novos concorrentes digitais</li><li>Custos de insumos</li></ul></div>
             </div>
         </section>
 
@@ -286,8 +289,10 @@ O que aprendi:
             <div class="company-container">
                 <div class="company-profile">
                     <div class="profile-grid">
-                        <div class="profile-card"><h4>Dados Gerais</h4><div class="profile-items"><div class="profile-item"><span>Segmento</span><strong>Restaurante de Doceria</strong></div><div class="profile-item"><span>Tempo de Mercado</span><strong>+15 anos</strong></div><div class="profile-item"><span>Faturamento</span><strong>R$ 200k - R$ 1M/mês</strong></div></div></div>
-                        <div class="profile-card"><h4>Presença Digital</h4><div class="profile-items"><div class="profile-item"><span>Site</span><a href="https://alicewerlang.com.br" target="_blank">alicewerlang.com.br</a></div><div class="profile-item"><span>Instagram</span><a href="#">@alicetortas</a></div></div></div>
+                        <div class="profile-card"><h4>Dados Gerais</h4><div class="profile-items"><div class="profile-item"><span>Segmento</span><strong>Restaurante de Doceria</strong></div><div class="profile-item"><span>Tempo de Mercado</span><strong>+15 anos</strong></div><div class="profile-item"><span>Unidades</span><strong>3 (Manaíra, Bessa)</strong></div></div></div>
+                        <div class="profile-card"><h4>Presença Digital</h4><div class="profile-items"><div class="profile-item"><span>Site</span><a href="https://alicewerlang.com.br" target="_blank">alicewerlang.com.br</a></div><div class="profile-item"><span>Instagram</span><a href="#">@alicetortas</a></div><div class="profile-item"><span>Facebook</span><a href="#">Alice Werlang</a></div><div class="profile-item"><span>TikTok</span><a href="#">@alicetortas</a></div></div></div>
+                        <div class="profile-card"><h4>Delivery</h4><div class="profile-items"><div class="profile-item"><span>iFood</span><strong>Alice Tortas — 4.7★</strong></div><div class="profile-item"><span>AnotaAI</span><strong>Alice Tortas — 4.5★</strong></div><div class="profile-item"><span>Pedidos/dia</span><strong>~65 pedidos</strong></div></div></div>
+                        <div class="profile-card"><h4>Marketing</h4><div class="profile-items"><div class="profile-item"><span>Investimento</span><strong>R$ 230/dia (Meta + TikTok)</strong></div><div class="profile-item"><span>ROI</span><strong>5.2x</strong></div><div class="profile-item"><span>Foco</span><strong>Redes Sociais + Delivery</strong></div></div></div>
                     </div>
                 </div>
             </div>
