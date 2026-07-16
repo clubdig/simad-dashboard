@@ -174,7 +174,6 @@ async function refreshDashboard() {
     const response = await fetch(`${SUPABASE_URL}/functions/v1/fetch-instagram`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
         'Content-Type': 'application/json'
       }
     });
