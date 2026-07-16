@@ -1,6 +1,6 @@
 // Configuração do Supabase
-const SUPABASE_URL = 'SUA_URL_AQUI';
-const SUPABASE_ANON_KEY = 'SUA_ANON_KEY_AQUI';
+const SUPABASE_URL = 'https://vmjjlpoawipgxhukbra.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZtanVqbHBvYXdpcGd4aHVrYnJhIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQyMjE4NTksImV4cCI6MjA5OTc5Nzg1OX0.c3Xlvtxs_rPXoYvt9xGG-zt52u1K1hlAv87fzckMsDY';
 
 // Inicializar Supabase (usando CDN)
 let supabase = null;
