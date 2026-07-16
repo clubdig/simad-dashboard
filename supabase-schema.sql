@@ -5,7 +5,7 @@ CREATE TABLE dashboard_data (
   id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
   platform VARCHAR(50) NOT NULL,
   metric_name VARCHAR(100) NOT NULL,
-  metric_value VARCHAR(100) NOT NULL,
+  metric_value TEXT NOT NULL,
   updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
   UNIQUE(platform, metric_name)
 );
