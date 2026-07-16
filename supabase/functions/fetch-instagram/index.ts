@@ -17,50 +17,78 @@ serve(async (req) => {
     
     const supabase = createClient(supabaseUrl, supabaseKey)
 
-    // Buscar dados do Instagram via Viralist
-    const response = await fetch('https://viralist.ai/instagram/creators/alicetortas')
-    const html = await response.text()
-    
-    // Extrair dados do HTML (simplificado - em produção usar regex mais robusto)
-    const followersMatch = html.match(/(\d+\.?\d*)[Kk]?\s*followers/i)
-    const postsMatch = html.match(/(\d+\.?\d*)[Kk]?\s*posts/i)
-    const followingMatch = html.match(/(\d+\.?\d*)[Kk]?\s*following/i)
-    
-    // Converter para números
-    let followers = 0
-    let posts = 0
-    let following = 0
-    
-    if (followersMatch) {
-      const val = followersMatch[1].replace('.', '')
-      followers = val.includes('K') ? parseFloat(val) * 1000 : parseInt(val)
-    }
-    if (postsMatch) {
-      const val = postsMatch[1].replace('.', '')
-      posts = val.includes('K') ? parseFloat(val) * 1000 : parseInt(val)
-    }
-    if (followingMatch) {
-      const val = followingMatch[1].replace('.', '')
-      following = val.includes('K') ? parseFloat(val) * 1000 : parseInt(val)
+    const results = {
+      instagram: null as any,
+      errors: [] as string[]
     }
 
-    // Atualizar no Supabase
-    const updates = [
-      { platform: 'instagram', metric_name: 'followers', metric_value: followers.toString() },
-      { platform: 'instagram', metric_name: 'posts', metric_value: posts.toString() },
-      { platform: 'instagram', metric_name: 'following', metric_value: following.toString() },
-    ]
+    // 1. Buscar Instagram via Viralist
+    try {
+      const igResponse = await fetch('https://viralist.ai/instagram/creators/alicetortas', {
+        headers: { 'User-Agent': 'Mozilla/5.0' }
+      })
+      const igHtml = await igResponse.text()
+      
+      // Extrair dados - padrão: "69.0Kfollowers" ou "69,000 followers"
+      const followersMatch = igHtml.match(/([\d,.]+[KkMm]?)\s*followers/i)
+      const postsMatch = igHtml.match(/([\d,.]+[KkMm]?)\s*posts/i)
+      const followingMatch = igHtml.match(/([\d,.]+[KkMm]?)\s*following/i)
+      
+      let followers = 0
+      let posts = 0
+      let following = 0
+      
+      if (followersMatch) {
+        let val = followersMatch[1].replace(/,/g, '')
+        if (val.includes('K') || val.includes('k')) {
+          followers = parseFloat(val) * 1000
+        } else if (val.includes('M') || val.includes('m')) {
+          followers = parseFloat(val) * 1000000
+        } else {
+          followers = parseInt(val)
+        }
+      }
+      
+      if (postsMatch) {
+        let val = postsMatch[1].replace(/,/g, '')
+        if (val.includes('K') || val.includes('k')) {
+          posts = parseFloat(val) * 1000
+        } else {
+          posts = parseInt(val)
+        }
+      }
+      
+      if (followingMatch) {
+        let val = followingMatch[1].replace(/,/g, '')
+        if (val.includes('K') || val.includes('k')) {
+          following = parseFloat(val) * 1000
+        } else {
+          following = parseInt(val)
+        }
+      }
 
-    for (const update of updates) {
-      await supabase
-        .from('dashboard_data')
-        .upsert(update, { onConflict: 'platform,metric_name' })
+      results.instagram = { followers, posts, following }
+
+      // Atualizar no Supabase
+      const updates = [
+        { platform: 'instagram', metric_name: 'followers', metric_value: Math.round(followers).toString() },
+        { platform: 'instagram', metric_name: 'posts', metric_value: Math.round(posts).toString() },
+        { platform: 'instagram', metric_name: 'following', metric_value: Math.round(following).toString() },
+      ]
+
+      for (const update of updates) {
+        await supabase
+          .from('dashboard_data')
+          .upsert(update, { onConflict: 'platform,metric_name' })
+      }
+    } catch (e) {
+      results.errors.push(`Instagram: ${e.message}`)
     }
 
     return new Response(
       JSON.stringify({ 
         success: true, 
-        data: { followers, posts, following },
+        data: results,
         timestamp: new Date().toISOString()
       }),
       { 

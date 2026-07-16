@@ -181,15 +181,19 @@ async function refreshDashboard() {
 
     const result = await response.json();
     
-    if (result.success) {
-      // Buscar todos os dados atualizados
-      const data = await fetchDashboardData();
-      if (data) {
-        updateDashboardUI(data);
-        showToast(`Dados atualizados! Instagram: ${result.data.followers} seguidores`);
+    if (result.success && result.data.instagram) {
+      const ig = result.data.instagram;
+      // Atualizar interface diretamente com os dados retornados
+      updateElement('igFollowers', formatNumber(ig.followers));
+      updateElement('igInfo', formatNumber(ig.followers) + ' seguidores • ' + ig.posts + ' posts');
+      
+      let msg = `Instagram: ${formatNumber(ig.followers)} seguidores`;
+      if (result.errors && result.errors.length > 0) {
+        msg += ` (${result.errors.length} erros)`
       }
+      showToast(msg);
     } else {
-      // Se a Edge Function falhar, buscar dados do banco
+      // Fallback: buscar dados do banco
       const data = await fetchDashboardData();
       if (data) {
         updateDashboardUI(data);
