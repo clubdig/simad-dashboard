@@ -100,41 +100,49 @@ function parseSupabaseData(data) {
 function updateDashboardUI(data) {
   const parsed = parseSupabaseData(data);
 
-  // Atualizar Instagram
+  // Atualizar KPI cards
   if (parsed.instagram) {
     const ig = parsed.instagram;
     updateElement('igFollowers', formatNumber(ig.followers));
-    updateElement('igPosts', ig.posts);
-    updateElement('igFollowing', ig.following);
-    updateElement('igEngagement', ig.engagement_rate + '%');
+    updateElement('igInfo', formatNumber(ig.followers) + ' seguidores • ' + ig.posts + ' posts');
   }
 
-  // Atualizar Facebook
   if (parsed.facebook) {
-    updateElement('fbFollowers', formatNumber(parsed.facebook.followers));
+    const fb = parsed.facebook;
+    if (fb.followers && fb.followers !== '0') {
+      updateElement('fbFollowers', formatNumber(fb.followers));
+      updateElement('fbInfo', formatNumber(fb.followers) + ' seguidores');
+    }
   }
 
-  // Atualizar TikTok
   if (parsed.tiktok) {
-    updateElement('ttFollowers', formatNumber(parsed.tiktok.followers));
+    const tt = parsed.tiktok;
+    if (tt.followers && tt.followers !== '0') {
+      updateElement('ttFollowers', formatNumber(tt.followers));
+      updateElement('ttInfo', formatNumber(tt.followers) + ' seguidores');
+    }
   }
 
-  // Atualizar Site
-  if (parsed.site) {
-    updateElement('siteVisits', formatNumber(parsed.site.monthly_visits));
-    updateElement('siteDuration', parsed.site.avg_duration + 'min');
-  }
-
-  // Atualizar iFood
   if (parsed.ifood) {
-    updateElement('ifoodRating', parsed.ifood.rating + '★');
-    updateElement('ifoodOrders', formatNumber(parsed.ifood.monthly_orders));
+    const ifood = parsed.ifood;
+    updateElement('ifoodRating', ifood.rating + '★');
+    if (ifood.monthly_orders && ifood.monthly_orders !== '0') {
+      updateElement('ifoodInfo', ifood.rating + '★ • ' + formatNumber(ifood.monthly_orders) + ' pedidos/mês ✅');
+    }
   }
 
-  // Atualizar AnotaAI
+  if (parsed.site) {
+    const site = parsed.site;
+    if (site.monthly_visits && site.monthly_visits !== '0') {
+      updateElement('siteInfo', formatNumber(site.monthly_visits) + ' visitas/mês');
+    }
+  }
+
   if (parsed.anotaai) {
-    updateElement('anotaaiRating', parsed.anotaai.rating + '★');
-    updateElement('anotaaiOrders', formatNumber(parsed.anotaai.monthly_orders));
+    const anotaai = parsed.anotaai;
+    if (anotaai.rating && anotaai.rating !== '0') {
+      updateElement('anotaaiInfo', anotaai.rating + '★ • ' + formatNumber(anotaai.monthly_orders) + ' pedidos/mês');
+    }
   }
 
   // Atualizar última atualização

@@ -55,7 +55,7 @@
                     <div class="kpi-icon kpi-instagram"><i class="fab fa-instagram"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">Seguidores Instagram</span>
-                        <span class="kpi-value">69.000</span>
+                        <span class="kpi-value" id="igFollowers">69.000</span>
                         <span class="kpi-change positive"><i class="fas fa-arrow-up"></i> +5%</span>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                     <div class="kpi-icon kpi-facebook"><i class="fab fa-facebook"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">Facebook</span>
-                        <span class="kpi-value">❓</span>
+                        <span class="kpi-value" id="fbFollowers">❓</span>
                         <span class="kpi-change" style="color:var(--accent)"><i class="fas fa-question-circle"></i> Aguardando dados</span>
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                     <div class="kpi-icon kpi-tiktok"><i class="fab fa-tiktok"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">TikTok</span>
-                        <span class="kpi-value">❓</span>
+                        <span class="kpi-value" id="ttFollowers">❓</span>
                         <span class="kpi-change" style="color:var(--accent)"><i class="fas fa-question-circle"></i> Aguardando dados</span>
                     </div>
                 </div>
@@ -79,7 +79,7 @@
                     <div class="kpi-icon kpi-site"><i class="fas fa-utensils"></i></div>
                     <div class="kpi-info">
                         <span class="kpi-label">iFood Nota</span>
-                        <span class="kpi-value">4.9★</span>
+                        <span class="kpi-value" id="ifoodRating">4.9★</span>
                         <span class="kpi-change positive"><i class="fas fa-star"></i> Confirmado</span>
                     </div>
                 </div>
@@ -122,12 +122,12 @@
             <div class="platforms-grid">
                 <h3><i class="fas fa-mobile-alt"></i> Presença Digital</h3>
                 <div class="platform-cards">
-                    <div class="platform-card instagram"><div class="platform-icon"><i class="fab fa-instagram"></i></div><div class="platform-info"><span>Instagram</span><strong>@alicetortas</strong><small>69.000 seguidores • 2.200 posts</small></div></div>
-                    <div class="platform-card facebook"><div class="platform-icon"><i class="fab fa-facebook"></i></div><div class="platform-info"><span>Facebook</span><strong>Alice Werlang</strong><small>Acesso bloqueado pelo Facebook</small></div></div>
-                    <div class="platform-card tiktok"><div class="platform-icon"><i class="fab fa-tiktok"></i></div><div class="platform-info"><span>TikTok</span><strong>@alice_tortas</strong><small>Acesso bloqueado pelo TikTok</small></div></div>
-                    <div class="platform-card site"><div class="platform-icon"><i class="fas fa-globe"></i></div><div class="platform-info"><span>Site</span><strong>alicewerlang.com.br</strong><small>Acesso restrito - precisa Analytics</small></div></div>
-                    <div class="platform-card ifood"><div class="platform-icon"><i class="fas fa-utensils"></i></div><div class="platform-info"><span>iFood</span><strong>Alice Werlang - Bessa</strong><small>4.9★ • ~500 pedidos/mês ✅</small></div></div>
-                    <div class="platform-card anotaai"><div class="platform-icon"><i class="fas fa-receipt"></i></div><div class="platform-info"><span>AnotaAI</span><strong>Alice Werlang</strong><small>Acesso restrito - precisa dados</small></div></div>
+                    <div class="platform-card instagram"><div class="platform-icon"><i class="fab fa-instagram"></i></div><div class="platform-info"><span>Instagram</span><strong>@alicetortas</strong><small id="igInfo">69.000 seguidores • 2.200 posts</small></div></div>
+                    <div class="platform-card facebook"><div class="platform-icon"><i class="fab fa-facebook"></i></div><div class="platform-info"><span>Facebook</span><strong>Alice Werlang</strong><small id="fbInfo">Acesso bloqueado pelo Facebook</small></div></div>
+                    <div class="platform-card tiktok"><div class="platform-icon"><i class="fab fa-tiktok"></i></div><div class="platform-info"><span>TikTok</span><strong>@alice_tortas</strong><small id="ttInfo">Acesso bloqueado pelo TikTok</small></div></div>
+                    <div class="platform-card site"><div class="platform-icon"><i class="fas fa-globe"></i></div><div class="platform-info"><span>Site</span><strong>alicewerlang.com.br</strong><small id="siteInfo">Acesso restrito - precisa Analytics</small></div></div>
+                    <div class="platform-card ifood"><div class="platform-icon"><i class="fas fa-utensils"></i></div><div class="platform-info"><span>iFood</span><strong>Alice Werlang - Bessa</strong><small id="ifoodInfo">4.9★ • ~500 pedidos/mês ✅</small></div></div>
+                    <div class="platform-card anotaai"><div class="platform-icon"><i class="fas fa-receipt"></i></div><div class="platform-info"><span>AnotaAI</span><strong>Alice Werlang</strong><small id="anotaaiInfo">Acesso restrito - precisa dados</small></div></div>
                 </div>
             </div>
 
@@ -315,10 +315,14 @@ O que aprendi:
     <script src="js/supabase.js"></script>
     <script src="js/app.js"></script>
     <script>
-        // Inicializar Supabase quando a página carregar
+        // Inicializar Supabase e buscar dados automaticamente
         document.addEventListener('DOMContentLoaded', function() {
             if (window.SupabaseIntegration) {
                 window.SupabaseIntegration.init();
+                // Buscar dados automaticamente ao carregar
+                setTimeout(function() {
+                    window.SupabaseIntegration.refresh();
+                }, 1000);
             }
         });
 
