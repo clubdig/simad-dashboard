@@ -6,6 +6,7 @@
     <title>SIMAD — Painel de Marketing</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
 </head>
 <body>
     <aside class="sidebar" id="sidebar">
@@ -40,6 +41,9 @@
                 <span class="breadcrumb">SIMAD / <span id="breadcrumb">Visão Geral</span></span>
             </div>
             <div class="top-bar-right">
+                <button class="refresh-btn" onclick="refreshDashboard()" title="Atualizar dados do Supabase">
+                    <i class="fas fa-sync-alt"></i> Atualizar Dados
+                </button>
                 <div class="user-profile"><span>Admin</span></div>
             </div>
         </header>
@@ -308,6 +312,22 @@ O que aprendi:
 
     <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Ação realizada!</span></div>
 
+    <script src="js/supabase.js"></script>
     <script src="js/app.js"></script>
+    <script>
+        // Inicializar Supabase quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.SupabaseIntegration) {
+                window.SupabaseIntegration.init();
+            }
+        });
+
+        // Função global de atualização
+        function refreshDashboard() {
+            if (window.SupabaseIntegration) {
+                window.SupabaseIntegration.refresh();
+            }
+        }
+    </script>
 </body>
 </html>

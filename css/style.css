@@ -189,3 +189,11 @@ a{color:var(--primary-light);text-decoration:none}
 @media(max-width:1200px){.charts-row{grid-template-columns:1fr}}
 @media(max-width:768px){.sidebar{transform:translateX(-100%)}.sidebar.active{transform:translateX(0)}.main-content{margin-left:0}.kpi-grid{grid-template-columns:1fr}.progress-item{grid-template-columns:1fr}.progress-value{text-align:left}}
 ::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:var(--bg-dark)}::-webkit-scrollbar-thumb{background:var(--bg-hover);border-radius:3px}
+
+/* Refresh Button */
+.top-bar-right{display:flex;align-items:center;gap:1rem}
+.refresh-btn{background:var(--primary);color:white;border:none;padding:0.6rem 1.2rem;border-radius:var(--border-radius-sm);cursor:pointer;font-size:0.9rem;display:flex;align-items:center;gap:0.5rem;transition:all 0.2s}
+.refresh-btn:hover{background:var(--primary-dark);transform:translateY(-1px)}
+.refresh-btn.loading{opacity:0.7;cursor:not-allowed}
+.refresh-btn i.fa-spin{animation:spin 1s linear infinite}
+@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
