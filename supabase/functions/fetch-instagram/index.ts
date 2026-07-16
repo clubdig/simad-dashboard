@@ -22,67 +22,71 @@ serve(async (req) => {
       errors: [] as string[]
     }
 
-    // 1. Buscar Instagram via Viralist
+    // 1. Buscar Instagram via i.instagram.com API (público)
     try {
-      const igResponse = await fetch('https://viralist.ai/instagram/creators/alicetortas', {
-        headers: { 'User-Agent': 'Mozilla/5.0' }
+      // Usar API pública do Instagram (sem autenticação)
+      const igResponse = await fetch('https://i.instagram.com/api/v1/users/web_profile_info/?username=alicetortas', {
+        headers: { 
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+          'X-IG-App-ID': '936619743392459'
+        }
       })
-      const igHtml = await igResponse.text()
       
-      // Extrair dados - padrão: "69.0Kfollowers" ou "69,000 followers"
-      const followersMatch = igHtml.match(/([\d,.]+[KkMm]?)\s*followers/i)
-      const postsMatch = igHtml.match(/([\d,.]+[KkMm]?)\s*posts/i)
-      const followingMatch = igHtml.match(/([\d,.]+[KkMm]?)\s*following/i)
-      
-      let followers = 0
-      let posts = 0
-      let following = 0
-      
-      if (followersMatch) {
-        let val = followersMatch[1].replace(/,/g, '')
-        if (val.includes('K') || val.includes('k')) {
-          followers = parseFloat(val) * 1000
-        } else if (val.includes('M') || val.includes('m')) {
-          followers = parseFloat(val) * 1000000
-        } else {
-          followers = parseInt(val)
-        }
-      }
-      
-      if (postsMatch) {
-        let val = postsMatch[1].replace(/,/g, '')
-        if (val.includes('K') || val.includes('k')) {
-          posts = parseFloat(val) * 1000
-        } else {
-          posts = parseInt(val)
-        }
-      }
-      
-      if (followingMatch) {
-        let val = followingMatch[1].replace(/,/g, '')
-        if (val.includes('K') || val.includes('k')) {
-          following = parseFloat(val) * 1000
-        } else {
-          following = parseInt(val)
-        }
-      }
+      if (igResponse.ok) {
+        const igData = await igResponse.json()
+        const user = igData.data?.user
+        
+        if (user) {
+          const followers = user.edge_followed_by?.count || 0
+          const posts = user.edge_owner_to_timeline_media?.count || 0
+          const following = user.edge_follow?.count || 0
+          
+          results.instagram = { followers, posts, following }
 
-      results.instagram = { followers, posts, following }
+          // Atualizar no Supabase
+          const updates = [
+            { platform: 'instagram', metric_name: 'followers', metric_value: followers.toString() },
+            { platform: 'instagram', metric_name: 'posts', metric_value: posts.toString() },
+            { platform: 'instagram', metric_name: 'following', metric_value: following.toString() },
+          ]
 
-      // Atualizar no Supabase
-      const updates = [
-        { platform: 'instagram', metric_name: 'followers', metric_value: Math.round(followers).toString() },
-        { platform: 'instagram', metric_name: 'posts', metric_value: Math.round(posts).toString() },
-        { platform: 'instagram', metric_name: 'following', metric_value: Math.round(following).toString() },
-      ]
-
-      for (const update of updates) {
-        await supabase
-          .from('dashboard_data')
-          .upsert(update, { onConflict: 'platform,metric_name' })
+          for (const update of updates) {
+            await supabase
+              .from('dashboard_data')
+              .upsert(update, { onConflict: 'platform,metric_name' })
+          }
+        }
+      } else {
+        results.errors.push(`Instagram API: ${igResponse.status}`)
       }
     } catch (e) {
       results.errors.push(`Instagram: ${e.message}`)
+    }
+
+    // 2. Buscar dados do iFood via scraping simples
+    try {
+      const ifoodResponse = await fetch('https://www.ifood.com.br/delivery/joao-pessoa-pb/alice-werlang---bessa-jardim-oceania/3cf56f8a-8cab-4e77-a273-b58a0bc3ef98', {
+        headers: { 'User-Agent': 'Mozilla/5.0' }
+      })
+      
+      if (ifoodResponse.ok) {
+        const ifoodHtml = await ifoodResponse.text()
+        
+        // Extrair rating
+        const ratingMatch = ifoodHtml.match(/"ratingValue":\s*([\d.]+)/)
+        if (ratingMatch) {
+          const rating = parseFloat(ratingMatch[1])
+          await supabase
+            .from('dashboard_data')
+            .upsert({ 
+              platform: 'ifood', 
+              metric_name: 'rating', 
+              metric_value: rating.toString() 
+            }, { onConflict: 'platform,metric_name' })
+        }
+      }
+    } catch (e) {
+      results.errors.push(`iFood: ${e.message}`)
     }
 
     return new Response(
