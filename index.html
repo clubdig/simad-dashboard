@@ -401,46 +401,10 @@ O que aprendi:
         // Modal de atualização
         function showUpdateModal() {
             document.getElementById('updateModal').classList.add('active');
-            loadCurrentValues();
         }
 
         function closeUpdateModal() {
             document.getElementById('updateModal').classList.remove('active');
-        }
-
-        // Carregar valores atuais
-        async function loadCurrentValues() {
-            const data = await window.SupabaseIntegration.fetch();
-            if (!data) return;
-
-            const parsed = {};
-            data.forEach(item => {
-                if (!parsed[item.platform]) parsed[item.platform] = {};
-                parsed[item.platform][item.metric_name] = item.metric_value;
-            });
-
-            if (parsed.instagram) {
-                document.getElementById('updateIgFollowers').value = parsed.instagram.followers || '';
-                document.getElementById('updateIgPosts').value = parsed.instagram.posts || '';
-                document.getElementById('updateIgFollowing').value = parsed.instagram.following || '';
-            }
-            if (parsed.ifood) {
-                document.getElementById('updateIfoodRating').value = parsed.ifood.rating || '';
-                document.getElementById('updateIfoodOrders').value = parsed.ifood.monthly_orders || '';
-            }
-            if (parsed.facebook) {
-                document.getElementById('updateFbFollowers').value = parsed.facebook.followers || '';
-            }
-            if (parsed.tiktok) {
-                document.getElementById('updateTtFollowers').value = parsed.tiktok.followers || '';
-            }
-            if (parsed.site) {
-                document.getElementById('updateSiteVisits').value = parsed.site.monthly_visits || '';
-            }
-            if (parsed.anotaai) {
-                document.getElementById('updateAnotaaiRating').value = parsed.anotaai.rating || '';
-                document.getElementById('updateAnotaaiOrders').value = parsed.anotaai.monthly_orders || '';
-            }
         }
 
         // Salvar todos os dados
