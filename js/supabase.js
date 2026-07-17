@@ -236,3 +236,6 @@ window.SupabaseIntegration = {
   refresh: refreshDashboard,
   update: updateMetric
 };
+
+// Função global para o botão
+window.refreshDashboard = refreshDashboard;

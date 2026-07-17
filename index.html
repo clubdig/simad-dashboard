@@ -41,7 +41,7 @@
                 <span class="breadcrumb">SIMAD / <span id="breadcrumb">Visão Geral</span></span>
             </div>
             <div class="top-bar-right">
-                <button class="refresh-btn" onclick="showUpdateModal()" title="Atualizar dados">
+                <button class="refresh-btn" onclick="refreshDashboard()" title="Buscar dados automaticamente">
                     <i class="fas fa-sync-alt"></i> Atualizar Dados
                 </button>
                 <div class="user-profile"><span>Admin</span></div>
@@ -387,19 +387,12 @@ O que aprendi:
             if (window.SupabaseIntegration) {
                 window.SupabaseIntegration.init();
                 setTimeout(function() {
-                    window.SupabaseIntegration.refresh();
+                    window.refreshDashboard();
                 }, 1000);
             }
         });
 
-        // Função global de atualização
-        function refreshDashboard() {
-            if (window.SupabaseIntegration) {
-                window.SupabaseIntegration.refresh();
-            }
-        }
-
-        // Modal de atualização
+        // Modal de atualização manual (fallback)
         function showUpdateModal() {
             document.getElementById('updateModal').classList.add('active');
         }
@@ -408,7 +401,7 @@ O que aprendi:
             document.getElementById('updateModal').classList.remove('active');
         }
 
-        // Salvar todos os dados
+        // Salvar todos os dados manualmente
         async function saveAllUpdates() {
             const updates = [
                 { platform: 'instagram', metric_name: 'followers', value: document.getElementById('updateIgFollowers').value },
@@ -432,8 +425,8 @@ O que aprendi:
             }
 
             closeUpdateModal();
-            showToast(`${successCount} dados atualizados com sucesso!`);
-            refreshDashboard();
+            showToast(`${successCount} dados salvos manualmente!`);
+            window.refreshDashboard();
         }
     </script>
 </body>
