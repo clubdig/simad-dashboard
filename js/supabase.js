@@ -170,26 +170,41 @@ async function refreshDashboard() {
   }
 
   try {
-    // Chamar Edge Function para buscar dados do Instagram
-    const response = await fetch(`${SUPABASE_URL}/functions/v1/fetch-instagram`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    });
-
-    const result = await response.json();
-    
-    if (result.success && result.data.instagram) {
-      const ig = result.data.instagram;
-      // Atualizar interface diretamente com os dados retornados
-      updateElement('igFollowers', formatNumber(ig.followers));
-      updateElement('igInfo', formatNumber(ig.followers) + ' seguidores • ' + ig.posts + ' posts');
+    // Buscar dados via scraper ( CORS proxy)
+    if (window.ScraperIntegration) {
+      const scraped = await window.ScraperIntegration.scrape();
       
-      let msg = `Instagram: ${formatNumber(ig.followers)} seguidores`;
-      if (result.errors && result.errors.length > 0) {
-        msg += ` (${result.errors.length} erros)`
+      // Atualizar Instagram
+      if (scraped.instagram && scraped.instagram.followers > 0) {
+        await updateMetric('instagram', 'followers', scraped.instagram.followers.toString());
+        await updateMetric('instagram', 'posts', scraped.instagram.posts.toString());
+        await updateMetric('instagram', 'following', scraped.instagram.following.toString());
       }
+      
+      // Atualizar Facebook
+      if (scraped.facebook && scraped.facebook.followers > 0) {
+        await updateMetric('facebook', 'followers', scraped.facebook.followers.toString());
+      }
+      
+      // Atualizar TikTok
+      if (scraped.tiktok && scraped.tiktok.followers > 0) {
+        await updateMetric('tiktok', 'followers', scraped.tiktok.followers.toString());
+      }
+      
+      // Atualizar iFood
+      if (scraped.ifood && scraped.ifood.rating > 0) {
+        await updateMetric('ifood', 'rating', scraped.ifood.rating.toString());
+      }
+      
+      // Buscar dados atualizados do banco
+      const data = await fetchDashboardData();
+      if (data) {
+        updateDashboardUI(data);
+      }
+      
+      let msg = 'Dados atualizados!';
+      if (scraped.instagram) msg += ` Instagram: ${scraped.instagram.followers}`;
+      if (scraped.errors.length > 0) msg += ` (${scraped.errors.length} erros)`;
       showToast(msg);
     } else {
       // Fallback: buscar dados do banco
@@ -201,7 +216,6 @@ async function refreshDashboard() {
     }
   } catch (error) {
     console.error('Erro ao buscar dados:', error);
-    // Fallback: buscar dados do banco
     const data = await fetchDashboardData();
     if (data) {
       updateDashboardUI(data);
