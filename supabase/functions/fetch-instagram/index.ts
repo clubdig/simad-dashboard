@@ -6,6 +6,71 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
+// Função para extrair números de texto
+function extractNumbers(text: string): { followers: number, posts: number, following: number } {
+  let followers = 0, posts = 0, following = 0
+  
+  // Padrões para followers
+  const followersPatterns = [
+    /(\d+[\.,]?\d*)\s*(mil|k|m)\s*seguidores/i,
+    /(\d+[\.,]?\d*)\s*followers/i,
+    /"edge_followed_by":\{"count":(\d+)\}/,
+    /followers_count["':]+\s*(\d+)/i
+  ]
+  
+  // Padrões para posts
+  const postsPatterns = [
+    /(\d+[\.,]?\d*)\s*posts/i,
+    /"edge_owner_to_timeline_media":\{"count":(\d+)/,
+    /posts_count["':]+\s*(\d+)/i
+  ]
+  
+  // Padrões para following
+  const followingPatterns = [
+    /(\d+[\.,]?\d*)\s*seguindo/i,
+    /(\d+[\.,]?\d*)\s*following/i,
+    /"edge_follow":\{"count":(\d+)\}/,
+    /following_count["':]+\s*(\d+)/i
+  ]
+  
+  for (const pattern of followersPatterns) {
+    const match = text.match(pattern)
+    if (match) {
+      let val = match[1].replace(/[,\.]/g, '')
+      if (match[2]) {
+        const multiplier = match[2].toLowerCase()
+        if (multiplier === 'mil' || multiplier === 'k') val = (parseFloat(match[1].replace(',', '.')) * 1000).toString()
+        if (multiplier === 'm') val = (parseFloat(match[1].replace(',', '.')) * 1000000).toString()
+      }
+      followers = parseInt(val)
+      break
+    }
+  }
+  
+  for (const pattern of postsPatterns) {
+    const match = text.match(pattern)
+    if (match) {
+      posts = parseInt(match[1].replace(/[,\.]/g, ''))
+      break
+    }
+  }
+  
+  for (const pattern of followingPatterns) {
+    const match = text.match(pattern)
+    if (match) {
+      let val = match[1].replace(/[,\.]/g, '')
+      if (match[2]) {
+        const multiplier = match[2].toLowerCase()
+        if (multiplier === 'mil' || multiplier === 'k') val = (parseFloat(match[1].replace(',', '.')) * 1000).toString()
+      }
+      following = parseInt(val)
+      break
+    }
+  }
+  
+  return { followers, posts, following }
+}
+
 serve(async (req) => {
   if (req.method === 'OPTIONS') {
     return new Response('ok', { headers: corsHeaders })
@@ -19,51 +84,49 @@ serve(async (req) => {
 
     const results = {
       instagram: null as any,
+      ifood: null as any,
       errors: [] as string[]
     }
 
-    // 1. Buscar Instagram via i.instagram.com API (público)
-    try {
-      // Usar API pública do Instagram (sem autenticação)
-      const igResponse = await fetch('https://i.instagram.com/api/v1/users/web_profile_info/?username=alicetortas', {
-        headers: { 
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-          'X-IG-App-ID': '936619743392459'
-        }
-      })
-      
-      if (igResponse.ok) {
-        const igData = await igResponse.json()
-        const user = igData.data?.user
+    // 1. Buscar Instagram via múltiplas fontes
+    const igSources = [
+      'https://www.instagram.com/alicetortas/',
+      'https://i.instagram.com/api/v1/users/web_profile_info/?username=alicetortas'
+    ]
+    
+    for (const source of igSources) {
+      try {
+        const response = await fetch(source, {
+          headers: { 
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+            'Accept-Language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7'
+          }
+        })
         
-        if (user) {
-          const followers = user.edge_followed_by?.count || 0
-          const posts = user.edge_owner_to_timeline_media?.count || 0
-          const following = user.edge_follow?.count || 0
+        if (response.ok) {
+          const text = await response.text()
+          const data = extractNumbers(text)
           
-          results.instagram = { followers, posts, following }
-
-          // Atualizar no Supabase
-          const updates = [
-            { platform: 'instagram', metric_name: 'followers', metric_value: followers.toString() },
-            { platform: 'instagram', metric_name: 'posts', metric_value: posts.toString() },
-            { platform: 'instagram', metric_name: 'following', metric_value: following.toString() },
-          ]
-
-          for (const update of updates) {
-            await supabase
-              .from('dashboard_data')
-              .upsert(update, { onConflict: 'platform,metric_name' })
+          if (data.followers > 0) {
+            results.instagram = data
+            
+            // Atualizar no Supabase
+            await supabase.from('dashboard_data').upsert([
+              { platform: 'instagram', metric_name: 'followers', metric_value: data.followers.toString() },
+              { platform: 'instagram', metric_name: 'posts', metric_value: data.posts.toString() },
+              { platform: 'instagram', metric_name: 'following', metric_value: data.following.toString() },
+            ], { onConflict: 'platform,metric_name' })
+            
+            break
           }
         }
-      } else {
-        results.errors.push(`Instagram API: ${igResponse.status}`)
+      } catch (e) {
+        results.errors.push(`Instagram ${source}: ${e.message}`)
       }
-    } catch (e) {
-      results.errors.push(`Instagram: ${e.message}`)
     }
 
-    // 2. Buscar dados do iFood via scraping simples
+    // 2. Buscar iFood
     try {
       const ifoodResponse = await fetch('https://www.ifood.com.br/delivery/joao-pessoa-pb/alice-werlang---bessa-jardim-oceania/3cf56f8a-8cab-4e77-a273-b58a0bc3ef98', {
         headers: { 'User-Agent': 'Mozilla/5.0' }
@@ -71,18 +134,15 @@ serve(async (req) => {
       
       if (ifoodResponse.ok) {
         const ifoodHtml = await ifoodResponse.text()
+        const ratingMatch = ifoodHtml.match(/"ratingValue":\s*([\d.]+)/) || ifoodHtml.match(/(\d\.\d)\s*estrela/i)
         
-        // Extrair rating
-        const ratingMatch = ifoodHtml.match(/"ratingValue":\s*([\d.]+)/)
         if (ratingMatch) {
           const rating = parseFloat(ratingMatch[1])
-          await supabase
-            .from('dashboard_data')
-            .upsert({ 
-              platform: 'ifood', 
-              metric_name: 'rating', 
-              metric_value: rating.toString() 
-            }, { onConflict: 'platform,metric_name' })
+          results.ifood = { rating }
+          
+          await supabase.from('dashboard_data').upsert([
+            { platform: 'ifood', metric_name: 'rating', metric_value: rating.toString() }
+          ], { onConflict: 'platform,metric_name' })
         }
       }
     } catch (e) {

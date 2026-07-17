@@ -41,7 +41,7 @@
                 <span class="breadcrumb">SIMAD / <span id="breadcrumb">Visão Geral</span></span>
             </div>
             <div class="top-bar-right">
-                <button class="refresh-btn" onclick="refreshDashboard()" title="Atualizar dados do Supabase">
+                <button class="refresh-btn" onclick="showUpdateModal()" title="Atualizar dados">
                     <i class="fas fa-sync-alt"></i> Atualizar Dados
                 </button>
                 <div class="user-profile"><span>Admin</span></div>
@@ -310,6 +310,72 @@ O que aprendi:
         </div>
     </div>
 
+    <!-- Modal de Atualização -->
+    <div class="modal" id="updateModal">
+        <div class="modal-content">
+            <div class="modal-header"><h3>Atualizar Dados</h3><button class="modal-close" onclick="closeUpdateModal()">&times;</button></div>
+            <div class="modal-body">
+                <p style="color:var(--text-secondary);margin-bottom:1rem;">Preencha os dados atualizados e clique em Salvar.</p>
+                
+                <h4 style="color:var(--primary-light);margin-bottom:0.5rem;">Instagram</h4>
+                <div class="form-row">
+                    <label>Seguidores</label>
+                    <input type="number" id="updateIgFollowers" placeholder="69700">
+                </div>
+                <div class="form-row">
+                    <label>Posts</label>
+                    <input type="number" id="updateIgPosts" placeholder="2292">
+                </div>
+                <div class="form-row">
+                    <label>Seguindo</label>
+                    <input type="number" id="updateIgFollowing" placeholder="3190">
+                </div>
+
+                <h4 style="color:var(--primary-light);margin:1rem 0 0.5rem;">iFood</h4>
+                <div class="form-row">
+                    <label>Nota</label>
+                    <input type="number" step="0.1" id="updateIfoodRating" placeholder="4.9">
+                </div>
+                <div class="form-row">
+                    <label>Pedidos/mês</label>
+                    <input type="number" id="updateIfoodOrders" placeholder="500">
+                </div>
+
+                <h4 style="color:var(--primary-light);margin:1rem 0 0.5rem;">Facebook</h4>
+                <div class="form-row">
+                    <label>Seguidores</label>
+                    <input type="number" id="updateFbFollowers" placeholder="0">
+                </div>
+
+                <h4 style="color:var(--primary-light);margin:1rem 0 0.5rem;">TikTok</h4>
+                <div class="form-row">
+                    <label>Seguidores</label>
+                    <input type="number" id="updateTtFollowers" placeholder="0">
+                </div>
+
+                <h4 style="color:var(--primary-light);margin:1rem 0 0.5rem;">Site</h4>
+                <div class="form-row">
+                    <label>Visitas/mês</label>
+                    <input type="number" id="updateSiteVisits" placeholder="0">
+                </div>
+
+                <h4 style="color:var(--primary-light);margin:1rem 0 0.5rem;">AnotaAI</h4>
+                <div class="form-row">
+                    <label>Nota</label>
+                    <input type="number" step="0.1" id="updateAnotaaiRating" placeholder="0">
+                </div>
+                <div class="form-row">
+                    <label>Pedidos/mês</label>
+                    <input type="number" id="updateAnotaaiOrders" placeholder="0">
+                </div>
+
+                <button class="btn-save" onclick="saveAllUpdates()" style="width:100%;margin-top:1.5rem;">
+                    <i class="fas fa-save"></i> Salvar Todos os Dados
+                </button>
+            </div>
+        </div>
+    </div>
+
     <div class="toast" id="toast"><i class="fas fa-check-circle"></i><span id="toastMessage">Ação realizada!</span></div>
 
     <script src="js/supabase.js"></script>
@@ -319,7 +385,6 @@ O que aprendi:
         document.addEventListener('DOMContentLoaded', function() {
             if (window.SupabaseIntegration) {
                 window.SupabaseIntegration.init();
-                // Buscar dados automaticamente ao carregar
                 setTimeout(function() {
                     window.SupabaseIntegration.refresh();
                 }, 1000);
@@ -331,6 +396,79 @@ O que aprendi:
             if (window.SupabaseIntegration) {
                 window.SupabaseIntegration.refresh();
             }
+        }
+
+        // Modal de atualização
+        function showUpdateModal() {
+            document.getElementById('updateModal').classList.add('active');
+            loadCurrentValues();
+        }
+
+        function closeUpdateModal() {
+            document.getElementById('updateModal').classList.remove('active');
+        }
+
+        // Carregar valores atuais
+        async function loadCurrentValues() {
+            const data = await window.SupabaseIntegration.fetch();
+            if (!data) return;
+
+            const parsed = {};
+            data.forEach(item => {
+                if (!parsed[item.platform]) parsed[item.platform] = {};
+                parsed[item.platform][item.metric_name] = item.metric_value;
+            });
+
+            if (parsed.instagram) {
+                document.getElementById('updateIgFollowers').value = parsed.instagram.followers || '';
+                document.getElementById('updateIgPosts').value = parsed.instagram.posts || '';
+                document.getElementById('updateIgFollowing').value = parsed.instagram.following || '';
+            }
+            if (parsed.ifood) {
+                document.getElementById('updateIfoodRating').value = parsed.ifood.rating || '';
+                document.getElementById('updateIfoodOrders').value = parsed.ifood.monthly_orders || '';
+            }
+            if (parsed.facebook) {
+                document.getElementById('updateFbFollowers').value = parsed.facebook.followers || '';
+            }
+            if (parsed.tiktok) {
+                document.getElementById('updateTtFollowers').value = parsed.tiktok.followers || '';
+            }
+            if (parsed.site) {
+                document.getElementById('updateSiteVisits').value = parsed.site.monthly_visits || '';
+            }
+            if (parsed.anotaai) {
+                document.getElementById('updateAnotaaiRating').value = parsed.anotaai.rating || '';
+                document.getElementById('updateAnotaaiOrders').value = parsed.anotaai.monthly_orders || '';
+            }
+        }
+
+        // Salvar todos os dados
+        async function saveAllUpdates() {
+            const updates = [
+                { platform: 'instagram', metric_name: 'followers', value: document.getElementById('updateIgFollowers').value },
+                { platform: 'instagram', metric_name: 'posts', value: document.getElementById('updateIgPosts').value },
+                { platform: 'instagram', metric_name: 'following', value: document.getElementById('updateIgFollowing').value },
+                { platform: 'ifood', metric_name: 'rating', value: document.getElementById('updateIfoodRating').value },
+                { platform: 'ifood', metric_name: 'monthly_orders', value: document.getElementById('updateIfoodOrders').value },
+                { platform: 'facebook', metric_name: 'followers', value: document.getElementById('updateFbFollowers').value },
+                { platform: 'tiktok', metric_name: 'followers', value: document.getElementById('updateTtFollowers').value },
+                { platform: 'site', metric_name: 'monthly_visits', value: document.getElementById('updateSiteVisits').value },
+                { platform: 'anotaai', metric_name: 'rating', value: document.getElementById('updateAnotaaiRating').value },
+                { platform: 'anotaai', metric_name: 'monthly_orders', value: document.getElementById('updateAnotaaiOrders').value },
+            ];
+
+            let successCount = 0;
+            for (const update of updates) {
+                if (update.value) {
+                    const result = await window.SupabaseIntegration.update(update.platform, update.metric_name, update.value);
+                    if (result) successCount++;
+                }
+            }
+
+            closeUpdateModal();
+            showToast(`${successCount} dados atualizados com sucesso!`);
+            refreshDashboard();
         }
     </script>
 </body>
